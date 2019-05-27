@@ -1,9 +1,9 @@
-import 'package:flutter_architecture/components/logo/index.dart';
+import 'package:flutter_architecture/custom-widgets/logo/index.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_architecture/screens/login/tabs_login.dart';
-import 'package:flutter_architecture/components/container_corner/index.dart';
-import 'package:flutter_architecture/components/container_with_margin/index.dart';
-import 'package:flutter_architecture/components/divider_input/index.dart';
+import 'package:flutter_architecture/pages/login/tabs_login.dart';
+import 'package:flutter_architecture/custom-widgets/container_corner/index.dart';
+import 'package:flutter_architecture/custom-widgets/container_with_margin/index.dart';
+import 'package:flutter_architecture/custom-widgets/divider_input/index.dart';
 
 import 'package:flutter_architecture/values/strings.dart' as strings;
 

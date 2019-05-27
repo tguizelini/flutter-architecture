@@ -1,4 +1,4 @@
-import 'package:flutter_architecture/components/divider_vertical/index.dart';
+import 'package:flutter_architecture/custom-widgets/divider_vertical/index.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_architecture/values/strings.dart' as strings;
