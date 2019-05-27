@@ -11,7 +11,7 @@ class FormAssociado extends StatelessWidget {
     return Column(
       children: <Widget>[
         EditText(
-          placeholder: strings.login["associado_input_cod_aasp"],
+          placeholder: strings.login["associado_input_cod"],
           keyboardType: TextInputType.number,
         ),
         DividerInput(),

@@ -16,7 +16,7 @@ class FormEscritorio extends StatelessWidget {
         ),
         DividerInput(),
         EditText(
-          placeholder: strings.login["escritorio_input_cod_aasp"],
+          placeholder: strings.login["escritorio_input_cod"],
           keyboardType: TextInputType.number,
         ),
         DividerInput(),
