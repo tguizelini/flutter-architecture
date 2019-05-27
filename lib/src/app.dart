@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'values/strings.dart' as strings;
-import 'package:flutter_architecture/values/theme.dart' as appTheme;
+import 'package:flutter_architecture/src/values/theme.dart' as appTheme;
 
-import 'package:flutter_architecture/pages/login/index.dart';
+import 'package:flutter_architecture/src/pages/login/login_page.dart';
 
 class App extends StatelessWidget {
   @override
@@ -12,7 +12,7 @@ class App extends StatelessWidget {
       title: strings.appTitle,
       debugShowCheckedModeBanner: false,
       theme: appTheme.theme,
-      home: Login()
+      home: LoginPage()
     );
   }
 } 

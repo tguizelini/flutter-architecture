@@ -1,5 +1,5 @@
-import 'package:flutter_architecture/models/response_model.dart';
-import 'package:flutter_architecture/models/usuario_model.dart';
+import 'package:flutter_architecture/src/models/response_model.dart';
+import 'package:flutter_architecture/src/models/usuario_model.dart';
 import '../helpers/http_helper.dart';
 
 class AuthService {

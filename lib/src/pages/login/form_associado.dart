@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_architecture/custom-widgets/button/index.dart';
-import 'package:flutter_architecture/custom-widgets/edit_text/index.dart';
-import 'package:flutter_architecture/custom-widgets/divider_input/index.dart';
+import 'package:flutter_architecture/src/custom-widgets/button/index.dart';
+import 'package:flutter_architecture/src/custom-widgets/edit_text/index.dart';
+import 'package:flutter_architecture/src/custom-widgets/divider_input/index.dart';
 
-import 'package:flutter_architecture/values/strings.dart' as strings;
+import 'package:flutter_architecture/src/values/strings.dart' as strings;
 
 class FormAssociado extends StatelessWidget {
   @override

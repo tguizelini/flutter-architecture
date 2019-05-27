@@ -1,4 +1,4 @@
-import 'package:flutter_architecture/helpers/custom_exception.dart';
+import 'package:flutter_architecture/src/helpers/custom_exception.dart';
 import 'dart:io';
 import 'package:dio/dio.dart';
 

@@ -1,16 +1,16 @@
-import 'package:flutter_architecture/custom-widgets/logo/index.dart';
+import 'package:flutter_architecture/src/custom-widgets/logo/index.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_architecture/pages/login/tabs_login.dart';
-import 'package:flutter_architecture/custom-widgets/container_corner/index.dart';
-import 'package:flutter_architecture/custom-widgets/container_with_margin/index.dart';
-import 'package:flutter_architecture/custom-widgets/divider_input/index.dart';
+import 'package:flutter_architecture/src/pages/login/tabs.dart';
+import 'package:flutter_architecture/src/custom-widgets/container_corner/index.dart';
+import 'package:flutter_architecture/src/custom-widgets/container_with_margin/index.dart';
+import 'package:flutter_architecture/src/custom-widgets/divider_input/index.dart';
 
-import 'package:flutter_architecture/values/strings.dart' as strings;
+import 'package:flutter_architecture/src/values/strings.dart' as strings;
 
 import 'form_associado.dart';
 import 'form_escritorio.dart';
 
-class Login extends StatelessWidget {
+class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

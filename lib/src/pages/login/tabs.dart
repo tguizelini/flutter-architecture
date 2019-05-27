@@ -1,7 +1,7 @@
-import 'package:flutter_architecture/custom-widgets/divider_vertical/index.dart';
+import 'package:flutter_architecture/src/custom-widgets/divider_vertical/index.dart';
 import 'package:flutter/material.dart';
 
-import 'package:flutter_architecture/values/strings.dart' as strings;
+import 'package:flutter_architecture/src/values/strings.dart' as strings;
 
 class TabsLogin extends StatefulWidget {
   @override
