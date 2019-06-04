@@ -10,7 +10,7 @@ class NavSlideFromLeft extends PageRouteBuilder {
     transitionsBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
       return new SlideTransition(
         position: Tween<Offset>(
-          begin: Offset(1.0, 0.0),
+          begin: Offset(-1.0, 0.0),
           end: Offset(0.0, 0.0),
         ).animate(animation),
         child: child,
