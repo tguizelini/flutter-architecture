@@ -1,64 +1,72 @@
-import 'package:flutter_architecture/src/utils/custom_exception.dart';
-import 'dart:io';
+import 'package:flutter_architecture/src/helpers/storage_helper.dart';
+import 'package:flutter_architecture/src/services/base_url.dart';
+import 'package:flutter_architecture/src/utils/storage_keys.dart';
 import 'package:dio/dio.dart';
 
 class HttpHelper {
   static Dio _client;
 
-  static Dio _openConnetion() {
+  static Dio _initInstance({ bool isAuth }) {
     if (_client == null) {
       _client = Dio();
-      _client.options.contentType = ContentType.parse("application/json");
+      _setHeader(isAuth);
       return _client;
     }
+
+    _setHeader(isAuth);
     return _client;
   }
 
-  static Future<List<Map<String, dynamic>>> list(String url) async {
-    _openConnetion();
+  static void _setHeader(bool isAuth) async {
+    if (isAuth == true) {
+      _client.options.headers = {
+        "Content-Type": "x-www-form-urlencoded"
+      };
+    } else {
+      final token = StorageHelper.get(StorageKeys.token);
 
-    _client.options.headers = {
-      'Authorization': 'Bearer ...'
-    };
-
-    Response res = await _client.get(url)
-      .catchError((error) {
-        print("HttpHelper.Error:: $error");
-        throw new CustomException("HttpHelper:: Erro ao efetuar busca");
-      }); 
-
-    return res.data;
+      _client.options.headers = {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer $token'
+      };
+    }
   }
 
-  static Future<Map<String, dynamic>> find(String url) async {
-    _openConnetion();
+  static Future<Response> auth(String codigo, String senha, String escritorio) async {
+    final String url = BaseUrl.urlSSO;
 
-    _client.options.headers = {
-      'Authorization': 'Bearer ...'
-    };
+    _initInstance(isAuth: true);
 
-    Response res = await _client.get(url)
-      .catchError((error) {
-        print("HttpHelper.Error:: $error");
-        throw new CustomException("HttpHelper:: Erro ao efetuar busca");
-      }); 
+    FormData payload = new FormData.from({
+      "grant_type": "password",
+      "scope": "",
+      "username": codigo,
+      "password": senha,
+      "office_code": escritorio,
+      "client_id": "sistema_a_autenticar",
+      "client_secret": "secret"
+    });
 
-    return res.data;
+    return _client.post(url, data: payload);
+  }
+
+  static Future<Response> get(String url) async {
+    _initInstance();
+    return _client.get(url);
   }
 
   static Future<Response> post(String url, Map<String, dynamic> body) async {
-    _openConnetion();
+    _initInstance();
+    return _client.post(url, data: body);
+  } 
 
-    _client.options.headers = {
-      'Authorization': 'Bearer ...'
-    };
+  static Future<Response> put(String url, Map<String, dynamic> body) async {
+    _initInstance();
+    return _client.put(url, data: body);
+  } 
 
-    Response res = await _client.post("", data: body)
-      .catchError((error) {
-        print("HttpHelper.Error:: $error");
-        throw new CustomException("HttpHelper:: Erro ao efetuar busca");
-      }); 
-
-    return res.data;
+  static Future<Response> delete(String url, Map<String, dynamic> body) async {
+    _initInstance();
+    return _client.delete(url);
   } 
 }

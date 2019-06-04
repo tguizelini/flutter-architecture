@@ -1,3 +1,3 @@
-enum StorageKeys {
-  token
+class StorageKeys {
+  static final String token = "token";
 }

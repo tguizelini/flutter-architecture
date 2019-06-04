@@ -10,17 +10,16 @@ class StorageHelper {
   }
 
   static String get(String key) {
-    _getInstance();
-    return _prefs.getString(key);
+    return _prefs?.getString(key);
   }
 
   static set(String key, dynamic value) async {
-    _getInstance();
+    await _getInstance();
     _prefs.setString(key, value);
   }
 
   static remove(String key) async {
-    _getInstance();
+    await _getInstance();
     _prefs.remove(key);
   }
 }

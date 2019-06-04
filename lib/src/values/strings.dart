@@ -1,5 +1,13 @@
 final String appTitle = "Flutter Architecture";
 
+final Map<String, dynamic> drawer = {
+  "gerenciador": "Profile",
+  "leitura": "Leitura",
+  "videos": "VideoFlix",
+  "agenda": "Agenda",
+  "sair": "Sair",
+};
+
 final Map<String, dynamic> login = {
   "titulo": "Login",
   "associado_input_cod": "Código",
@@ -12,6 +20,6 @@ final Map<String, dynamic> login = {
   "tab_associado": "Associado",
   "tab_escritorio": "Escritório",
   "tab_escritorio": "Escritório",
-  "label_nao_afiliado": "Ainda não é filiado?",
-  "link_filie_se": "Filie-se"
+  "label_nao_afiliado": "Ainda não é cadastrado?",
+  "link_filie_se": "Cadastre-se"
 };

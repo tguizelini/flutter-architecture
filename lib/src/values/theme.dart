@@ -1,5 +1,16 @@
 import 'package:flutter/material.dart';
+import 'colors.dart' as colors;
 
 final ThemeData theme = ThemeData(
-  primarySwatch: Colors.indigo,
+  primaryColor: colors.primaryColor,
+  accentColor: colors.accentColor,
+  scaffoldBackgroundColor: colors.backgroundColor,
+  //canvasColor: colors.canvasColor,
+  appBarTheme: AppBarTheme(
+    color: colors.accentColor,
+  ),
+  buttonTheme: ButtonThemeData(
+    buttonColor: colors.accentLightColor,
+    disabledColor: colors.primaryColorDark
+  )
 );
