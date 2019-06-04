@@ -1,32 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_architecture/src/custom-widgets/text/index.dart';
 
 class Toolbar extends StatelessWidget implements PreferredSizeWidget {
-  const Toolbar({
-    Key key, 
-    this.actions, 
-    this.leading, 
-    this.title,
-    this.color
-  }) : super(key: key);
+  const Toolbar({Key key, this.leading, this.title, this.actions, this.color, this.elevation}) : super(key: key);
 
   @override
   Size get preferredSize => Size.fromHeight(kToolbarHeight);
 
   final Widget leading;
-  final Widget title;
+  final String title;
   final List<Widget> actions;
   final Color color;
-
-  final double elevation = 6;
+  final double elevation;
   
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: title,
+      title: CustomText(
+        text: title,
+        white: true,
+        title: true,
+      ),
       leading: leading,
       actions: actions,
-      backgroundColor: color,
-      elevation: elevation
+      elevation: elevation != null ? elevation : 6.0
     );
   }
 }

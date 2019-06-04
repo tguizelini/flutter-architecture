@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_architecture/src/values/colors.dart' as colors;
+import 'package:flutter_architecture/src/values/dimens.dart' as dimens;
 
-class Button extends StatelessWidget {
+class CustomButton extends StatelessWidget {
   final String label;
   final Function onPress;
   final bool disabled;
 
   final double _elevation = 3;
 
-  const Button({
+  const CustomButton({
     Key key, 
     this.label,
     this.onPress,
@@ -19,11 +21,13 @@ class Button extends StatelessWidget {
     final action = disabled == true ? null : onPress;
 
     return RaisedButton(
-      color: Colors.redAccent,
       textColor: Colors.white,
       onPressed: action,
       elevation: _elevation,
-      child: Text(label ?? "Label"),
+      child: Text(label ?? "Label", style: TextStyle(
+        color: Colors.white,
+        fontSize: dimens.fontButton
+      )),
     );
   }
 }

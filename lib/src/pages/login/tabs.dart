@@ -1,16 +1,14 @@
-import 'package:flutter_architecture/src/custom-widgets/divider_vertical/index.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_architecture/src/blocs/login_bloc.dart';
+import 'package:flutter_architecture/src/custom-widgets/divider_vertical/index.dart';
 import 'package:flutter_architecture/src/values/strings.dart' as strings;
+import 'package:flutter_architecture/src/values/colors.dart' as colors;
+import 'package:flutter_architecture/src/values/dimens.dart' as dimens;
 
-class TabsLogin extends StatefulWidget {
-  @override
-  _TabsLogin createState() => _TabsLogin();
-}
+class Tabs extends StatelessWidget {
+  final LoginBloc bloc;
 
-class _TabsLogin extends State<TabsLogin> {
-  String _selected = "associado";
-  final double _fontSize = 17;
+  Tabs({ Key key, this.bloc }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,23 +16,33 @@ class _TabsLogin extends State<TabsLogin> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         GestureDetector(
-          onTap: () { setState(() => _selected = "associado"); },
-          child: Text(strings.login["tab_associado"],
-              style: TextStyle(
-                  fontSize: _fontSize,
-                  color: _selected == 'associado' ? Colors.redAccent : Colors.black45, 
-                  fontWeight: _selected == 'associado' ? FontWeight.bold : FontWeight.normal
-              )),
+          onTap: () => bloc.setTab("associado"),
+          child: StreamBuilder<String>(
+            stream: bloc.tab,
+            builder: (context, snapshot) {
+              return Text(strings.login["tab_associado"],
+                style: TextStyle(
+                  fontSize: dimens.fontTextBig,
+                  color: snapshot.data == 'associado' ? colors.accentColor : colors.disabledColor, 
+                  fontWeight: snapshot.data == 'associado' ? FontWeight.bold : FontWeight.normal
+                ));
+            }
+          ),
         ),
         DividerVertical(),
         GestureDetector(
-          onTap: () { setState(() => _selected = "escritorio"); },
-          child: Text(strings.login["tab_escritorio"],
-              style: TextStyle(
-                fontSize: _fontSize,
-                color: _selected == 'escritorio' ? Colors.redAccent : Colors.black45, 
-                fontWeight: _selected == 'escritorio' ? FontWeight.bold : FontWeight.normal
-              )),
+          onTap: () => bloc.setTab("escritorio"),
+          child: StreamBuilder<String>(
+            stream: bloc.tab,
+            builder: (context, snapshot) {
+              return Text(strings.login["tab_escritorio"],
+                style: TextStyle(
+                  fontSize: dimens.fontTextBig,
+                  color: snapshot.data == 'escritorio' ? colors.accentColor : colors.primaryColorDark, 
+                  fontWeight: snapshot.data == 'escritorio' ? FontWeight.bold : FontWeight.normal
+                ));
+            }
+          ),
         )
       ],
     );

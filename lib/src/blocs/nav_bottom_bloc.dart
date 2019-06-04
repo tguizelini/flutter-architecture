@@ -1,9 +1,9 @@
+import 'package:flutter_architecture/src/custom-widgets/nav_bottom_bar/models/nav_bottom_model.dart';
 import 'package:flutter_architecture/src/pages/login/index.dart';
 import 'package:flutter_architecture/src/utils/navigation/nav_no_animation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:flutter_architecture/src/custom_widgets/nav_bottom_bar/models/nav_bottom_model.dart';
 
 class NavBottomBloc {
   final _options = BehaviorSubject<List<NavBottomModel>>.seeded([

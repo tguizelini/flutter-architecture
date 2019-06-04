@@ -1,9 +1,10 @@
 import 'package:flutter_architecture/src/blocs/base/bloc_provider.dart';
-import 'package:flutter_architecture/src/custom_widgets/card_view/index.dart';
-import 'package:flutter_architecture/src/custom_widgets/nav_bottom_bar/models/nav_bottom_model.dart';
-import 'package:flutter_architecture/src/custom_widgets/nav_bottom_bar/nav_bottom_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_architecture/src/custom-widgets/card_view/index.dart';
 import 'package:flutter_architecture/src/values/colors.dart' as colors;
+
+import 'models/nav_bottom_model.dart';
+import 'nav_bottom_item.dart';
 
 class CustomNavBottom extends StatelessWidget {
 

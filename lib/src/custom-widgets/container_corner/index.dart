@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 class ContainerCorner extends StatelessWidget {
-  final Widget content;
+  final Widget child;
   final Color color;
   
   const ContainerCorner({
     Key key, 
     this.color,
-    this.content
+    this.child
   }) : super(key: key);
 
   @override
@@ -22,7 +22,7 @@ class ContainerCorner extends StatelessWidget {
           topRight: Radius.circular(10)
         )
       ),
-      child: content
+      child: child
     );
   }
 }

@@ -5,12 +5,10 @@ class Logo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(32.0),
-          child: Image(
-            image: _assetsImage, 
-            fit: BoxFit.fitHeight
-          ),
+    return Image(
+      image: _assetsImage, 
+      //height: 600,
+      fit: BoxFit.cover
     );
   }
 }
