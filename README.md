@@ -1,11 +1,10 @@
 # A Flutter Architecture for big projects
 
-This project structure brings productivity and a north for begin big projects thinking about scalebility.
+This project structure brings productivity and greate for new flutter projects projects thinking about scalebility.
 
 #### Libraries
 
-1. Dio for Http requests
-2. RxDart for reactive apps
-3. UserDefault/LocalStorage using Shared Preferences with a helper class
-
-#### Soon, this architecture will be able to work easily with Bloc Pattern..
+1. Bloc
+2. Dio for Http requests
+3. RxDart for reactive apps
+4. UserDefault/LocalStorage using Shared Preferences with a helper class
