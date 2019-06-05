@@ -2,7 +2,7 @@
 
 This project structure was made thinking in productivity and easy maintenance.
 
-#### Libraries
+#### What it brings ?
 
 1. Bloc pattern with dependency injection
 2. RxDart for reactive apps
