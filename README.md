@@ -4,7 +4,7 @@ This project structure brings productivity and greate for new flutter projects p
 
 #### Libraries
 
-1. Bloc pattern
+1. Bloc pattern with dependency injection
 2. RxDart for reactive apps
 3. Helper for make HTTP requests using Dio
 4. Helper for store data on device using Shared Preferences with a helper class
