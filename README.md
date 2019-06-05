@@ -4,7 +4,11 @@ This project structure brings productivity and greate for new flutter projects p
 
 #### Libraries
 
-1. Bloc
-2. Dio for Http requests
-3. RxDart for reactive apps
-4. UserDefault/LocalStorage using Shared Preferences with a helper class
+1. Bloc pattern
+2. RxDart for reactive apps
+3. Helper for make HTTP requests using Dio
+4. Helper for store data on device using Shared Preferences with a helper class
+5. Custom classes for page transitions animated (fromLeft, from Top, fromBottom and fromRight)
+6. Custom Widgets like Loading, CardView, ContainerCorner (with round corner shape), ContainerWithMargin default, Toast and other..
+7. Centering global values like native Android: "strings" (to put all the strings values that will be used on the pages), dimens (to set the margin or fontSize default for buttons, containers, etc), theme (to set the color pallet of the theme) and the colors defaults.
+8. Also, at "utils" folder we have a custom class to decode JWT Tokens based on base64
