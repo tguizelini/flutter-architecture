@@ -1,6 +1,6 @@
 # A Flutter Architecture ready for big projects
 
-This project structure brings productivity and greate for new flutter projects projects thinking about scalebility.
+This project structure was made thinking in productivity and easy maintenance.
 
 #### Libraries
 
