@@ -1,4 +1,4 @@
-# A Flutter Architecture for big projects
+# A Flutter Architecture ready for big projects
 
 This project structure brings productivity and greate for new flutter projects projects thinking about scalebility.
 
