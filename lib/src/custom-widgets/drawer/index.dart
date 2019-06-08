@@ -21,10 +21,7 @@ class CustomDrawer extends StatelessWidget {
           
               UserAccountsDrawerHeader(
                 decoration: BoxDecoration(
-                  image: DecorationImage( 
-                    image: AssetImage("assets/images/login_associado_background.png"),
-                    fit: BoxFit.cover
-                  ) 
+                  color: colors.accentColor
                 ),
                 currentAccountPicture: CircleAvatar(
                   backgroundImage: NetworkImage('https://avatars3.githubusercontent.com/u/4768926?s=400&v=4')

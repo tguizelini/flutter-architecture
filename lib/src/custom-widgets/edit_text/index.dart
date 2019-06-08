@@ -9,6 +9,7 @@ class EditText extends StatelessWidget {
   final String placeholder;
   final TextInputType keyboardType;
   final bool password;
+  final bool dark;
 
   const EditText({
     Key key, 
@@ -17,7 +18,8 @@ class EditText extends StatelessWidget {
     this.keyboardType,
     this.onChange,
     this.value,
-    this.password
+    this.password,
+    this.dark
   }) : super(key: key);
 
   @override
@@ -31,7 +33,7 @@ class EditText extends StatelessWidget {
           onChanged: onChange,
           keyboardType: keyboardType,
           style: TextStyle(
-            color: colors.primaryColor //cor do texto ao digitar
+            color: dark == true ? colors.backgroundColor : colors.primaryColor  //cor do texto ao digitar
           ),
           autofocus: autofocus == null ? false : true,
           textCapitalization: TextCapitalization.none,
@@ -51,7 +53,7 @@ class EditText extends StatelessWidget {
             ),
             labelStyle: TextStyle(
               fontSize: dimens.fontEditText, 
-              color: colors.primaryColorDark //cor da label
+              color: dark == true ? colors.backgroundColor : colors.primaryColorDark //cor da label
             ),
             border: OutlineInputBorder(
               borderSide: BorderSide(
@@ -61,7 +63,7 @@ class EditText extends StatelessWidget {
             ),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(
-                color: colors.primaryColor, //cor da label quando esta com focus
+                color: dark == true ? colors.backgroundColor : colors.primaryColor, //cor da label quando esta com focus
                 width: 0
               )
             )

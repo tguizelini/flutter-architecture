@@ -61,7 +61,7 @@ class CustomText extends StatelessWidget {
         decoration: TextDecoration.none,
         fontSize: fontSize,
         color: color == null ? 
-            dark == true ? colors.darkColor : customColor 
+            dark == true ? colors.backgroundColor : customColor 
           : 
             color,
         fontWeight: isBold
