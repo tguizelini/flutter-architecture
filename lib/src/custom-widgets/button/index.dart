@@ -6,6 +6,7 @@ class CustomButton extends StatelessWidget {
   final String label;
   final Function onPress;
   final bool disabled;
+  final bool primary;
 
   final double _elevation = 3;
 
@@ -13,7 +14,8 @@ class CustomButton extends StatelessWidget {
     Key key, 
     this.label,
     this.onPress,
-    this.disabled
+    this.disabled,
+    this.primary
   }) : super(key: key);
 
   @override
@@ -21,13 +23,13 @@ class CustomButton extends StatelessWidget {
     final action = disabled == true ? null : onPress;
 
     return RaisedButton(
-      textColor: Colors.white,
+      textColor: primary == true ? colors.primaryColorDark : colors.darkColor,
       onPressed: action,
       elevation: _elevation,
-      child: Text(label ?? "Label", style: TextStyle(
-        color: Colors.white,
-        fontSize: dimens.fontButton
-      )),
+      color: primary == true ? Colors.transparent : null,
+      child: Text(label ?? "Label", 
+        style: TextStyle(fontSize: dimens.fontButton)
+      ),
     );
   }
 }

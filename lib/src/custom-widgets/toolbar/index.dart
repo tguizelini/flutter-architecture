@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_architecture/src/custom-widgets/text/index.dart';
+import 'package:flutter_architecture/src/values/colors.dart' as colors;
 
 class Toolbar extends StatelessWidget implements PreferredSizeWidget {
   const Toolbar({Key key, this.leading, this.title, this.actions, this.color, this.elevation}) : super(key: key);
@@ -18,7 +19,7 @@ class Toolbar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       title: CustomText(
         text: title,
-        white: true,
+        dark: true,
         title: true,
       ),
       leading: leading,

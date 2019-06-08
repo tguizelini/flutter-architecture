@@ -32,20 +32,15 @@ class HttpHelper {
     }
   }
 
-  static Future<Response> auth(String codigo, String senha, String escritorio) async {
-    final String url = BaseUrl.urlSSO;
+  static Future<Response> auth(String login, String senha) async {
+    final String url = BaseUrl.urlAuth;
 
     _initInstance(isAuth: true);
 
-    FormData payload = new FormData.from({
-      "grant_type": "password",
-      "scope": "",
-      "username": codigo,
-      "password": senha,
-      "office_code": escritorio,
-      "client_id": "sistema_a_autenticar",
-      "client_secret": "secret"
-    });
+    final payload = {
+      "login": login,
+      "senha": senha,
+    };
 
     return _client.post(url, data: payload);
   }

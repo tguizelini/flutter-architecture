@@ -27,13 +27,11 @@ class CustomDrawer extends StatelessWidget {
                   ) 
                 ),
                 currentAccountPicture: CircleAvatar(
-                  backgroundImage: NetworkImage('https://cdn.massanews.com/uploads/noticias/lg-67fc0c55-10d5-434c-a50d-d3e293ff23ce.jpg')
+                  backgroundImage: NetworkImage('https://avatars3.githubusercontent.com/u/4768926?s=400&v=4')
                 ),
-                accountName: Text("Dudu, O Rei do Allianz"), 
+                accountName: Text("Tiago Teixeira Guizelini"), 
                 accountEmail: null
               ),
-
-              //GERENCIADOR
 
               ListTile(
                 onTap: () => Navigator.of(context).pop(),
@@ -43,43 +41,42 @@ class CustomDrawer extends StatelessWidget {
                 ),
                 title: CustomText(
                   big: true,
-                  text: strings.drawer["gerenciador"],
+                  dark: true,
+                  text: strings.drawer["option1"],
                 )
               ),
 
-              //AGENDA
-
               ListTile(
-                onTap: () => print("agenda"),
+                onTap: () => print("option2"),
                 leading: Icon(Icons.gavel),
                 title: CustomText(
                   big: true,
                   primaryDark: true,
-                  text: strings.drawer["agenda"],
+                  text: strings.drawer["option2"],
                 )
               ),
 
               //LEITURA
 
               ListTile(
-                onTap: () => print("leitura"),
+                onTap: () => print("option3"),
                 leading: Icon(Icons.gavel),
                 title: CustomText(
                   big: true,
                   primaryDark: true,
-                  text: strings.drawer["leitura"],
+                  text: strings.drawer["option3"],
                 )
               ),
 
               //VIDEOS
 
               ListTile(
-                onTap: () => print("aaspflix"),
+                onTap: () => print("option4"),
                 leading: Icon(Icons.video_library),
                 title: CustomText(
                   big: true,
                   primaryDark: true,
-                  text: strings.drawer["videos"],
+                  text: strings.drawer["option4"],
                 )
               ),
             ],
@@ -91,9 +88,6 @@ class CustomDrawer extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 16.0),
             child: ListTile(
               onTap: () {
-                bloc.setCodigo("");
-                bloc.setSenha("");
-
                 Navigator.pushReplacement(context, CupertinoPageRoute(builder: (context) {
                   return LoginPage();
                 }));
@@ -105,7 +99,7 @@ class CustomDrawer extends StatelessWidget {
               title: CustomText(
                 big: true,
                 accent: true,
-                text: strings.drawer["sair"],
+                text: strings.drawer["logout"],
               )
             ),
           )

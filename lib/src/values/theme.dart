@@ -8,6 +8,7 @@ final ThemeData theme = ThemeData(
   //canvasColor: colors.canvasColor,
   appBarTheme: AppBarTheme(
     color: colors.accentColor,
+    iconTheme: IconThemeData(color: colors.darkColor)
   ),
   buttonTheme: ButtonThemeData(
     buttonColor: colors.accentLightColor,

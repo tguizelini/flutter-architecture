@@ -30,29 +30,38 @@ class EditText extends StatelessWidget {
           obscureText: password == true ? true : false,
           onChanged: onChange,
           keyboardType: keyboardType,
+          style: TextStyle(
+            color: colors.primaryColor //cor do texto ao digitar
+          ),
           autofocus: autofocus == null ? false : true,
           textCapitalization: TextCapitalization.none,
           decoration: InputDecoration(
-            hintStyle: TextStyle(
-              fontSize: dimens.fontEditText, 
-              color: colors.primaryColor
-            ),
-            labelStyle: TextStyle(
-              fontSize: dimens.fontEditText, 
-              color: colors.primaryColorDark
-            ),
             hintText: placeholder,
             labelText: placeholder,
             errorText: snapshot.error,
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: colors.primaryColorDark, //cor da borda 
+                width: 0.0
+              ),
+            ),
+            hintStyle: TextStyle(
+              color: Colors.transparent, //cor do placeholder com foco
+              fontSize: dimens.fontEditText
+            ),
+            labelStyle: TextStyle(
+              fontSize: dimens.fontEditText, 
+              color: colors.primaryColorDark //cor da label
+            ),
             border: OutlineInputBorder(
               borderSide: BorderSide(
-                color: colors.primaryColorDark,
+                color: colors.primaryColorDark, //cor da label quando esta com focus
                 width: 0
               )
             ),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(
-                color: colors.primaryColor,
+                color: colors.primaryColor, //cor da label quando esta com focus
                 width: 0
               )
             )

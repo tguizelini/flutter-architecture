@@ -9,6 +9,7 @@ class CustomText extends StatelessWidget {
   final bool big;
   final bool small;
   final bool white;
+  final bool dark;
   final bool accent;
   final bool primary;
   final bool primaryDark;
@@ -23,6 +24,7 @@ class CustomText extends StatelessWidget {
     this.big, 
     this.small, 
     this.white, 
+    this.dark,
     this.accent, 
     this.primary, 
     this.primaryDark,
@@ -58,7 +60,10 @@ class CustomText extends StatelessWidget {
       style: TextStyle(
         decoration: TextDecoration.none,
         fontSize: fontSize,
-        color: color == null ? customColor : color,
+        color: color == null ? 
+            dark == true ? colors.darkColor : customColor 
+          : 
+            color,
         fontWeight: isBold
       )
     );
