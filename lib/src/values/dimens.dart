@@ -9,6 +9,6 @@ final double fontTextBig = 18.0;
 final double fontText = 16.0;
 final double fontTextSmall = 14.0;
 
-final double fontEditText = 16.0;
+final double fontEditText = 14.0;
 final double fontButton = 14.0;
 

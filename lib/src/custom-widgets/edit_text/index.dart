@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_architecture/src/values/colors.dart' as colors;
 import 'package:flutter_architecture/src/values/dimens.dart' as dimens;
 
@@ -10,6 +11,7 @@ class EditText extends StatelessWidget {
   final TextInputType keyboardType;
   final bool password;
   final bool dark;
+  final bool multiline;
 
   const EditText({
     Key key, 
@@ -19,7 +21,8 @@ class EditText extends StatelessWidget {
     this.onChange,
     this.value,
     this.password,
-    this.dark
+    this.dark,
+    this.multiline
   }) : super(key: key);
 
   @override
@@ -31,7 +34,8 @@ class EditText extends StatelessWidget {
         return TextField(
           obscureText: password == true ? true : false,
           onChanged: onChange,
-          keyboardType: keyboardType,
+          maxLines: multiline == true ? null : 1,
+          keyboardType: multiline == true ? TextInputType.multiline : keyboardType,
           style: TextStyle(
             color: dark == true ? colors.backgroundColor : colors.primaryColor  //cor do texto ao digitar
           ),

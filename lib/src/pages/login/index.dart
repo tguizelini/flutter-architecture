@@ -7,10 +7,9 @@ import 'package:flutter_architecture/src/custom-widgets/divider_input/index.dart
 import 'package:flutter_architecture/src/custom-widgets/edit_text/index.dart';
 import 'package:flutter_architecture/src/custom-widgets/loading/index.dart';
 import 'package:flutter_architecture/src/custom-widgets/logo/index.dart';
-import 'package:flutter_architecture/src/custom-widgets/logo_ht7/index.dart';
 import 'package:flutter_architecture/src/custom-widgets/text/index.dart';
-import 'package:flutter_architecture/src/values/strings.dart' as strings;
-import 'package:flutter_architecture/src/values/colors.dart' as colors;
+import 'package:flutter_architecture/src/pages/fale_conosco/index.dart';
+import 'package:flutter_architecture/src/utils/navigation/nav_slide_from_top.dart';
 
 class LoginPage extends StatelessWidget {
   @override
@@ -29,7 +28,7 @@ class LoginPage extends StatelessWidget {
             children: <Widget>[
               Expanded(
                 flex: 1,
-                child: Container(
+                child: Center(
                   child: Logo()
                 )
               ),
@@ -45,20 +44,22 @@ class LoginPage extends StatelessWidget {
                           dark: true,
                           keyboardType: TextInputType.number,
                           value: bloc.login,
-                          placeholder: "CPF",
+                          placeholder: "LOGIN",
                         ),
                         DividerInput(),
                         EditText(
                           dark: true,
                           password: true,
                           value: bloc.senha,
-                          placeholder: "SENHA",
+                          placeholder: "PASSWORD",
                         ),
                         DividerInput(),
                         DividerInput(),
                         CustomButton(
-                          onPress: () => null,
-                          label: "ENTRAR",
+                          onPress: () {
+                            Navigator.push(context, NavSlideFromTop(page: FaleConoscoPage()));
+                          },
+                          label: "SIGNIN",
                         ),
                         DividerInput(),
                         DividerInput(),

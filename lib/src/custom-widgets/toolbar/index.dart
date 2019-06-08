@@ -19,7 +19,7 @@ class Toolbar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       title: CustomText(
         text: title,
-        dark: true,
+        color: colors.darkColor,
         title: true,
       ),
       leading: leading,

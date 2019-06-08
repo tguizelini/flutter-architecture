@@ -8,6 +8,7 @@ class CustomText extends StatelessWidget {
   final bool bold;
   final bool big;
   final bool small;
+  final bool center;
   final bool white;
   final bool dark;
   final bool accent;
@@ -23,6 +24,7 @@ class CustomText extends StatelessWidget {
     this.bold, 
     this.big, 
     this.small, 
+    this.center,
     this.white, 
     this.dark,
     this.accent, 
@@ -57,6 +59,7 @@ class CustomText extends StatelessWidget {
     return Text(
       textValue,
       maxLines: maxLines,
+      textAlign: center == true ? TextAlign.center : null,
       style: TextStyle(
         decoration: TextDecoration.none,
         fontSize: fontSize,
