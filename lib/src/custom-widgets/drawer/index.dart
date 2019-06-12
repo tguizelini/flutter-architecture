@@ -1,4 +1,5 @@
 import 'package:flutter_architecture/src/blocs/base/bloc_provider.dart';
+import 'package:flutter_architecture/src/blocs/drawer_bloc.dart';
 import 'package:flutter_architecture/src/custom-widgets/text/index.dart';
 import 'package:flutter_architecture/src/pages/login/index.dart';
 import 'package:flutter/cupertino.dart';
@@ -9,7 +10,7 @@ import 'package:flutter_architecture/src/values/strings.dart' as strings;
 class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final bloc = BlocProvider.of(context).login;
+    final DrawerBloc bloc = DrawerBloc();
 
     return Drawer(
       child: Column(
@@ -84,11 +85,7 @@ class CustomDrawer extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(bottom: 16.0),
             child: ListTile(
-              onTap: () {
-                Navigator.pushReplacement(context, CupertinoPageRoute(builder: (context) {
-                  return LoginPage();
-                }));
-              },
+              onTap: () => bloc.logout(context),
               leading: Icon(
                 Icons.exit_to_app,
                 color: colors.accentColor,

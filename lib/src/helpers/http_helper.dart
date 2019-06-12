@@ -1,6 +1,6 @@
 import 'package:flutter_architecture/src/helpers/storage_helper.dart';
 import 'package:flutter_architecture/src/services/base_url.dart';
-import 'package:flutter_architecture/src/utils/storage_keys.dart';
+import 'package:flutter_architecture/src/utils/storage_keys.dart' as StorageKeys;
 import 'package:dio/dio.dart';
 
 class HttpHelper {
@@ -23,7 +23,7 @@ class HttpHelper {
         "Content-Type": "x-www-form-urlencoded"
       };
     } else {
-      final token = StorageHelper.get(StorageKeys.token);
+      final token = await StorageHelper.get(StorageKeys.token);
 
       _client.options.headers = {
         'Content-Type': 'application/json',
