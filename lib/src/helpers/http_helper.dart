@@ -6,7 +6,7 @@ import 'package:dio/dio.dart';
 class HttpHelper {
   static Dio _client;
 
-  static Future<Dio> _getInstance({ bool isAuth }) async {
+  static Future<Dio> _getInstance({ bool isAuth, Map<String, dynamic> headers }) async {
     if (_client == null) _client = Dio();
 
     if (isAuth == true) {
@@ -17,6 +17,10 @@ class HttpHelper {
       return _client;
     }
 
+    if (headers != null) {
+      _client.options.headers = headers;
+      return _client;
+    }
 
     final token = await StorageHelper.get(StorageKeys.token);
     final cookie = await StorageHelper.get(StorageKeys.cookie);
@@ -47,23 +51,23 @@ class HttpHelper {
     return instance.post(url, data: payload);
   }
 
-  static Future<Response> get(String url) async {
-    final instance = await _getInstance();
+  static Future<Response> get(String url, { Map<String, dynamic> headers }) async {
+    final instance = await _getInstance(headers: headers);
     return instance.get(url);
   }
 
-  static Future<Response> post(String url, Map<String, dynamic> body) async {
-    final instance = await _getInstance();
+  static Future<Response> post(String url, { Map<String, dynamic> body, Map<String, dynamic> headers }) async {
+    final instance = await _getInstance(headers: headers);
     return instance.post(url, data: body);
   } 
 
-  static Future<Response> put(String url, Map<String, dynamic> body) async {
-    final instance = await _getInstance();
+  static Future<Response> put(String url, { Map<String, dynamic> body, Map<String, dynamic> headers }) async {
+    final instance = await _getInstance(headers: headers);
     return instance.put(url, data: body);
   } 
 
-  static Future<Response> delete(String url, Map<String, dynamic> body) async {
-    final instance = await _getInstance();
+  static Future<Response> delete(String url, { Map<String, dynamic> body, Map<String, dynamic> headers }) async {
+    final instance = await _getInstance(headers: headers);
     return instance.delete(url);
   } 
 }
