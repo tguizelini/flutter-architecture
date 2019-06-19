@@ -10,6 +10,9 @@ import 'package:flutter_architecture/src/custom-widgets/logo.dart';
 import 'package:flutter_architecture/src/custom-widgets/text.dart';
 
 import 'package:flutter_architecture/src/pages/contact/contact.dart';
+import 'package:flutter_architecture/src/pages/login/login_footer.dart';
+import 'package:flutter_architecture/src/pages/login/login_form.dart';
+import 'package:flutter_architecture/src/pages/login/login_header.dart';
 
 import 'package:flutter_architecture/src/utils/navigation/nav_slide_from_top.dart';
 
@@ -28,12 +31,7 @@ class LoginPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Expanded(
-                flex: 1,
-                child: Center(
-                  child: Logo()
-                )
-              ),
+              LoginHeader(),
               Expanded(
                 flex: 2,
                 child: ContainerCorner(
@@ -42,46 +40,8 @@ class LoginPage extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        EditText(
-                          dark: true,
-                          keyboardType: TextInputType.number,
-                          value: bloc.login,
-                          placeholder: "LOGIN",
-                        ),
-                        DividerInput(),
-                        EditText(
-                          dark: true,
-                          password: true,
-                          value: bloc.senha,
-                          placeholder: "PASSWORD",
-                        ),
-                        DividerInput(),
-                        DividerInput(),
-                        CustomButton(
-                          onPress: () {
-                            Navigator.push(context, NavSlideFromTop(page: ContactPage()));
-                          },
-                          label: "SIGNIN",
-                        ),
-                        DividerInput(),
-                        DividerInput(),
-                        DividerInput(),
-                        DividerInput(),
-                        CustomText(
-                          dark: true,
-                          small: true,
-                          text: "ABOUT",
-                        ),
-                        CustomText(
-                           accent: true,
-                          small: true,
-                          text: "ABOUT ACCENT",
-                        ),
-                        CustomText(
-                          primaryDark: true,
-                          small: true,
-                          text: "ABOUT PRIMARY DARK",
-                        ),
+                        LoginForm(bloc: bloc),
+                        LoginFooter()
                       ],
                     ),
                   ),
