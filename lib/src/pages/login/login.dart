@@ -31,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Loading(
-      message: "doing something...",
+      message: "Loading message",
       status: bloc.loading,
       child: Scaffold(
         resizeToAvoidBottomPadding: false,
