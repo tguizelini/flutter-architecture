@@ -1,5 +1,7 @@
 import 'package:flutter_architecture/src/custom-widgets/nav_bottom_bar/models/nav_bottom_model.dart';
 import 'package:flutter_architecture/src/pages/login/login.dart';
+import 'package:flutter_architecture/src/pages/profile/page1.dart';
+import 'package:flutter_architecture/src/pages/profile/page2.dart';
 import 'package:flutter_architecture/src/utils/navigation/nav_no_animation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -7,16 +9,14 @@ import 'package:rxdart/rxdart.dart';
 
 class NavBottomBloc {
   final _options = BehaviorSubject<List<NavBottomModel>>.seeded([
-    NavBottomModel(id: "home", icon: Icons.home),
-    NavBottomModel(id: "login", icon: Icons.gavel),
-    NavBottomModel(id: "page1", icon: Icons.chrome_reader_mode),
-    NavBottomModel(id: "page2", icon: Icons.description)
+    NavBottomModel(id: "page1", icon: Icons.home),
+    NavBottomModel(id: "page2", icon: Icons.gavel)
   ]);
 
   Observable<List<NavBottomModel>> get options => _options.stream;
 
   final _optionActive = BehaviorSubject<NavBottomModel>.seeded(
-    NavBottomModel(id: "home", icon: Icons.home)
+    NavBottomModel(id: "page1", icon: Icons.home)
   );
 
   Observable<NavBottomModel> get optionActive => _optionActive.stream;
@@ -25,23 +25,19 @@ class NavBottomBloc {
     _optionActive.sink.add(option);
 
     switch(option.id) {
-      case "home":
+      case "page1":
         Navigator.pushReplacement(context, NavNoAnimation(
-          page: LoginPage()
+          page: Page1()
         ));
 
         break; 
-      case "login":
+      case "page2":
         Navigator.pushReplacement(context, NavNoAnimation(
-          page: LoginPage()
+          page: Page2()
         ));
 
         break;
-      default:
-        Navigator.pushReplacement(context, NavNoAnimation(
-          page: LoginPage()
-        ));
-        
+      default: 
         break;
     }
   }

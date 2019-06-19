@@ -26,7 +26,7 @@ class CustomButton extends StatelessWidget {
       textColor: primary == true ? colors.primaryColorDark : colors.darkColor,
       onPressed: action,
       elevation: _elevation,
-      color: primary == true ? Colors.transparent : null,
+      color: primary == true ? colors.snackbarBackgroundColor : null,
       child: Text(label ?? "Label", 
         style: TextStyle(fontSize: dimens.fontButton)
       ),

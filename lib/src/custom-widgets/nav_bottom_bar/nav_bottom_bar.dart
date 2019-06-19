@@ -7,7 +7,6 @@ import 'models/nav_bottom_model.dart';
 import 'nav_bottom_item.dart';
 
 class CustomNavBottom extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     final bloc = BlocProvider.of(context).navBottomBar;

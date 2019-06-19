@@ -4,6 +4,8 @@ import 'package:flutter_architecture/src/custom-widgets/button.dart';
 import 'package:flutter_architecture/src/custom-widgets/divider_input.dart';
 import 'package:flutter_architecture/src/custom-widgets/edit_text.dart';
 import 'package:flutter_architecture/src/pages/contact/contact.dart';
+import 'package:flutter_architecture/src/pages/profile/profile.dart';
+import 'package:flutter_architecture/src/utils/navigation/nav_slide_from_right.dart';
 import 'package:flutter_architecture/src/utils/navigation/nav_slide_from_top.dart';
 
 class LoginForm extends StatelessWidget {
@@ -29,13 +31,23 @@ class LoginForm extends StatelessWidget {
         ),
         DividerInput(),
         DividerInput(),
+
         CustomButton(
           onPress: () {
-            Navigator.push(context, NavSlideFromTop(page: ContactPage()));
+            Navigator.pushReplacement(context, NavSlideFromTop(page: ProfilePage()));
           },
           label: "SIGNIN",
         ),
         DividerInput(),
+
+        CustomButton(
+          primary: true,
+          onPress: () {
+            Navigator.push(context, NavSlideFromRight(page: ContactPage()));
+          },
+          label: "CONTACT",
+        ),
+
         DividerInput(),
         DividerInput(),
         DividerInput()
