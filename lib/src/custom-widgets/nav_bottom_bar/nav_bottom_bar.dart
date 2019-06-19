@@ -1,6 +1,6 @@
 import 'package:flutter_architecture/src/blocs/base/bloc_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_architecture/src/custom-widgets/card_view/index.dart';
+import 'package:flutter_architecture/src/custom-widgets/card_view.dart';
 import 'package:flutter_architecture/src/values/colors.dart' as colors;
 
 import 'models/nav_bottom_model.dart';

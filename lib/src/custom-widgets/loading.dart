@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_architecture/src/custom-widgets/text/index.dart';
+import 'package:flutter_architecture/src/custom-widgets/text.dart';
 import 'package:rxdart/rxdart.dart';
 
 import 'package:flutter_architecture/src/values/colors.dart' as colors;

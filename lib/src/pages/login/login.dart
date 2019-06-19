@@ -1,14 +1,16 @@
 import 'package:flutter_architecture/src/blocs/base/bloc_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_architecture/src/custom-widgets/button/index.dart';
-import 'package:flutter_architecture/src/custom-widgets/container_corner/index.dart';
-import 'package:flutter_architecture/src/custom-widgets/container_with_margin/index.dart';
-import 'package:flutter_architecture/src/custom-widgets/divider_input/index.dart';
-import 'package:flutter_architecture/src/custom-widgets/edit_text/index.dart';
-import 'package:flutter_architecture/src/custom-widgets/loading/index.dart';
-import 'package:flutter_architecture/src/custom-widgets/logo/index.dart';
-import 'package:flutter_architecture/src/custom-widgets/text/index.dart';
-import 'package:flutter_architecture/src/pages/fale_conosco/index.dart';
+import 'package:flutter_architecture/src/custom-widgets/button.dart';
+import 'package:flutter_architecture/src/custom-widgets/container_corner.dart';
+import 'package:flutter_architecture/src/custom-widgets/container_with_margin.dart';
+import 'package:flutter_architecture/src/custom-widgets/divider_input.dart';
+import 'package:flutter_architecture/src/custom-widgets/edit_text.dart';
+import 'package:flutter_architecture/src/custom-widgets/loading.dart';
+import 'package:flutter_architecture/src/custom-widgets/logo.dart';
+import 'package:flutter_architecture/src/custom-widgets/text.dart';
+
+import 'package:flutter_architecture/src/pages/contact/contact.dart';
+
 import 'package:flutter_architecture/src/utils/navigation/nav_slide_from_top.dart';
 
 class LoginPage extends StatelessWidget {
@@ -57,7 +59,7 @@ class LoginPage extends StatelessWidget {
                         DividerInput(),
                         CustomButton(
                           onPress: () {
-                            Navigator.push(context, NavSlideFromTop(page: FaleConoscoPage()));
+                            Navigator.push(context, NavSlideFromTop(page: ContactPage()));
                           },
                           label: "SIGNIN",
                         ),

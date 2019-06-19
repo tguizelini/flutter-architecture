@@ -4,7 +4,7 @@ import 'blocs/base/bloc_provider.dart';
 import 'values/strings.dart' as strings;
 import 'package:flutter_architecture/src/values/theme.dart' as appTheme;
 
-import 'package:flutter_architecture/src/pages/login/index.dart';
+import 'package:flutter_architecture/src/pages/login/login.dart';
 
 class App extends StatelessWidget {
   @override

@@ -1,7 +1,5 @@
-import 'package:flutter_architecture/src/blocs/base/bloc_provider.dart';
 import 'package:flutter_architecture/src/blocs/drawer_bloc.dart';
-import 'package:flutter_architecture/src/custom-widgets/text/index.dart';
-import 'package:flutter_architecture/src/pages/login/index.dart';
+import 'package:flutter_architecture/src/custom-widgets/text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_architecture/src/values/colors.dart' as colors;

@@ -1,7 +1,7 @@
-import 'package:aasp_gerenciador/src/helpers/storage_helper.dart';
-import 'package:aasp_gerenciador/src/services/base/base_url.dart' as BASE_URL;
-import 'package:aasp_gerenciador/src/utils/storage_keys.dart' as StorageKeys;
 import 'package:dio/dio.dart';
+import 'package:flutter_architecture/src/services/base/base_url.dart' as BASE_URL;
+import 'package:flutter_architecture/src/utils/storage_keys.dart' as StorageKeys;
+import 'package:flutter_architecture/src/helpers/storage_helper.dart';
 
 class HttpHelper {
   static Dio _client;
@@ -33,18 +33,17 @@ class HttpHelper {
     return _client;
   }
 
-  static Future<Response> authSSO(String codigo, String senha, String escritorio) async {
-    final String url = BASE_URL.authSSO;
+  static Future<Response> authSSO(String codigo, String senha) async {
+    final String url = BASE_URL.auth;
 
     final instance = await _getInstance(isAuth: true);
 
     FormData payload = new FormData.from({
       "grant_type": "password",
-      "scope": "openid profile servicointimacoes intimacoesapi",
+      "scope": "scope1 scope2 scope3",
       "username": codigo,
       "password": senha,
-      "office_code": escritorio,
-      "client_id": "app_gerenciador",
+      "client_id": "my_client_name",
       "client_secret": "secret"
     });
 

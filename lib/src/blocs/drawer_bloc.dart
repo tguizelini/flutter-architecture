@@ -1,5 +1,5 @@
 import 'package:flutter_architecture/src/helpers/storage_helper.dart';
-import 'package:flutter_architecture/src/pages/login/index.dart';
+import 'package:flutter_architecture/src/pages/login/login.dart';
 import 'package:flutter_architecture/src/utils/navigation/nav_no_animation.dart';
 import 'package:flutter_architecture/src/utils/storage_keys.dart' as StorageKeys;
 import 'package:flutter/cupertino.dart';

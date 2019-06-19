@@ -11,7 +11,7 @@ class AuthService {
     ResponseModel response = ResponseModel();
     UsuarioModel user;
     
-    final retAuth = HttpHelper.auth(login, senha);
+    final retAuth = HttpHelper.authSSO(login, senha);
 
     await retAuth.then((res) {
       String token = res.data["access_token"];

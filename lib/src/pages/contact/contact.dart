@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_architecture/src/custom-widgets/button/index.dart';
-import 'package:flutter_architecture/src/custom-widgets/container_with_margin/index.dart';
-import 'package:flutter_architecture/src/custom-widgets/divider_input/index.dart';
-import 'package:flutter_architecture/src/custom-widgets/edit_text/index.dart';
-import 'package:flutter_architecture/src/custom-widgets/logo_ht7/index.dart';
-import 'package:flutter_architecture/src/custom-widgets/text/index.dart';
-import 'package:flutter_architecture/src/custom-widgets/toast/index.dart';
-import 'package:flutter_architecture/src/custom-widgets/toolbar/index.dart';
+import 'package:flutter_architecture/src/custom-widgets/button.dart';
+import 'package:flutter_architecture/src/custom-widgets/container_with_margin.dart';
+import 'package:flutter_architecture/src/custom-widgets/divider_input.dart';
+import 'package:flutter_architecture/src/custom-widgets/edit_text.dart';
+import 'package:flutter_architecture/src/custom-widgets/logo_ht7.dart';
+import 'package:flutter_architecture/src/custom-widgets/text.dart';
+import 'package:flutter_architecture/src/custom-widgets/toast.dart';
+import 'package:flutter_architecture/src/custom-widgets/toolbar.dart';
 
-class FaleConoscoPage extends StatelessWidget {
+class ContactPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
