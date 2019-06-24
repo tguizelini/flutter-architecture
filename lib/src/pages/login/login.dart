@@ -8,28 +8,11 @@ import 'package:flutter_architecture/src/pages/login/login_footer.dart';
 import 'package:flutter_architecture/src/pages/login/login_form.dart';
 import 'package:flutter_architecture/src/pages/login/login_header.dart';
 
-class LoginPage extends StatefulWidget {
-  @override
-  _LoginPageState createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> {
-  LoginBloc bloc;
-
-  @override
-  void initState() {
-    super.initState();
-    bloc = LoginBloc();
-  }
-
-  @override
-  void dispose() {
-    bloc.dispose();
-    super.dispose();
-  }
-
+class LoginPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
+    final bloc = BlocProvider.of(context).login;
+
     return Loading(
       message: "Loading message",
       status: bloc.loading,
