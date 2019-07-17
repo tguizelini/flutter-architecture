@@ -26,10 +26,13 @@ dependencies:
   provider: ^3.0.0+1
   shared_preferences: ^0.5.2
   fluttertoast: ^3.1.0
+  moor_flutter: ^1.6.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  moor_generator:
+  build_runner:
 
 
 # For information on the generic Dart part of this file, see the
