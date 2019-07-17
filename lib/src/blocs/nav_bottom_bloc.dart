@@ -1,13 +1,10 @@
-import 'package:flutter_architecture/src/custom-widgets/nav_bottom_bar/models/nav_bottom_model.dart';
-import 'package:flutter_architecture/src/pages/login/login.dart';
-import 'package:flutter_architecture/src/pages/profile/page1.dart';
-import 'package:flutter_architecture/src/pages/profile/page2.dart';
-import 'package:flutter_architecture/src/utils/navigation/nav_no_animation.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter_architecture/src/blocs/base/bloc_base.dart';
+import 'package:flutter_architecture/src/custom_widgets/nav_bottom_bar/models/nav_bottom_model.dart';
 import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
 
-class NavBottomBloc {
+class NavBottomBloc extends BlocBase {
+  //LIST OF MENU
   final _options = BehaviorSubject<List<NavBottomModel>>.seeded([
     NavBottomModel(id: "page1", icon: Icons.home),
     NavBottomModel(id: "page2", icon: Icons.gavel)
@@ -15,35 +12,29 @@ class NavBottomBloc {
 
   Observable<List<NavBottomModel>> get options => _options.stream;
 
-  final _optionActive = BehaviorSubject<NavBottomModel>.seeded(
+  //MENU ITEM    
+  final _itemActive = BehaviorSubject<NavBottomModel>.seeded(
     NavBottomModel(id: "page1", icon: Icons.home)
   );
+  Observable<NavBottomModel> get itemActive => _itemActive.stream.asBroadcastStream();
 
-  Observable<NavBottomModel> get optionActive => _optionActive.stream;
+  //INDEX OF ACTIVE ITEM    
+  final _optionActive = BehaviorSubject<int>.seeded(0);
+  Observable<int> get optionActive => _optionActive.stream.asBroadcastStream();
 
-  void setOptionActive(BuildContext context, NavBottomModel option) {
-    _optionActive.sink.add(option);
-
-    switch(option.id) {
-      case "page1":
-        Navigator.pushReplacement(context, NavNoAnimation(
-          page: Page1()
-        ));
-
-        break; 
-      case "page2":
-        Navigator.pushReplacement(context, NavNoAnimation(
-          page: Page2()
-        ));
-
-        break;
-      default: 
-        break;
-    }
+  void setOptionActive(int option) {
+    _itemActive.add(_options.value[option]);
+    _optionActive.add(option);
   }
 
+  @override
   void dispose() {
     _options.close();
+    _itemActive.close();
     _optionActive.close();
+
+    print("NavBottomBloc dispose called");
+    
+    super.dispose();
   }
 }

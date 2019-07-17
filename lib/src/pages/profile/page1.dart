@@ -1,32 +1,47 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_architecture/src/custom-widgets/nav_bottom_bar/nav_bottom_bar.dart';
-import 'package:flutter_architecture/src/custom-widgets/text.dart';
-import 'package:flutter_architecture/src/custom-widgets/toolbar.dart';
-import 'package:flutter_architecture/src/pages/login/login.dart';
-import 'package:flutter_architecture/src/utils/navigation/nav_no_animation.dart';
+import 'package:flutter_architecture/src/custom_widgets/button.dart';
+import 'package:flutter_architecture/src/custom_widgets/tag.dart';
+import 'package:flutter_architecture/src/custom_widgets/text.dart';
+import 'package:flutter_architecture/src/values/colors.dart' as colors;
 
 class Page1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: Toolbar(
-        title: "Page 1",
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.exit_to_app),
-            onPressed: () => Navigator.pushReplacement(context, NavNoAnimation(page: LoginPage()))
+    return Container(
+      color: colors.backgroundColor,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          CustomText(
+            accent: true,
+            small: true,
+            text: "ACCENT COLOR",
           ),
+          CustomText(
+            small: true,
+            text: "PRIMARY COLOR",
+          ),
+          CustomText(
+            small: true,
+            primaryDark: true,
+            text: "PRIMARY DARK COLOR",
+          ),
+          CustomText(
+            small: true,
+            dark: true,
+            text: "DARK COLOR",
+          ),
+          CustomButton(
+            primary: true,
+            label: "Primary Button",
+            onPress: () => null,
+          ),
+          CustomButton(
+            label: "Default Button",
+            onPress: () => null,
+          )
         ]
-      ),
-
-      body: Container(
-        color: Colors.black38,
-        child: Center(
-          child: CustomText(text: "Page 1",)
-        )
-      ),
-
-      bottomNavigationBar: CustomNavBottom(),
+      )
     ); 
   }
 }
