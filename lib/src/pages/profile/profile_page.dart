@@ -20,13 +20,12 @@ class _ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final blocNavBottom = Provider.of<NavBottomBloc>(context);
-    blocNavBottom.setToolbarElevation(8);
-
     return Scaffold(
       drawer: CustomDrawer(),
       
       appBar: Toolbar(
         title: "Profile Page",
+        elevation: 6,
         actions: <Widget>[
           IconButton(
             onPressed: () => CustomToast.show("Notification clicked"),
