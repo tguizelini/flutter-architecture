@@ -18,7 +18,7 @@ This project structure was made thinking in productivity and easy maintenance.
 
 7. Custom classes for page transitions animated (fromLeft, from Top, fromBottom and fromRight)
 
-8. Custom Widgets like Loading, CardView, ContainerCorner (with round corner shape), Toast, Snackbar, Modal e Dropdown and many more.
+8. Custom Widgets like Loading, CardView, ContainerCorner (with round corner shape), Toast, Snackbar, Modal, Dropdown, CustomDrawer and others.
 
 9. Centering global values like native Android: "strings" (to put all the strings values that will be used on the pages), dimens (to set the margin or fontSize default for buttons, containers, etc), theme (to set the color pallet of the theme) and the colors defaults.
 
