@@ -5,8 +5,8 @@ This project structure was made thinking in productivity and easy maintenance.
 #### What it brings ?
 
 1. Bloc pattern 
-2. Provider package just for dependency injection
-3. RxDart to manage the states 
+2. Provider package for dependency injection
+3. RxDart to manage states 
 4. Helper for make HTTP requests using Dio
 5. Helper for store data on device using Shared Preferences with a helper class
 6. Custom classes for page transitions animated (fromLeft, from Top, fromBottom and fromRight)
