@@ -4,7 +4,7 @@ This project structure was made thinking in productivity and easy maintenance.
 
 #### What it brings ?
 
-1. Bloc pattern 
+1. Bloc pattern (business layer)
 
 2. Provider package for dependency injection
 
