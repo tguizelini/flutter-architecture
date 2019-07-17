@@ -20,6 +20,6 @@ This project structure was made thinking in productivity and easy maintenance.
 
 8. Custom Widgets like Loading, CardView, ContainerCorner (with round corner shape), Toast, Snackbar, Modal, Dropdown, CustomDrawer and others.
 
-9. Centering global values like native Android: "strings" (to put all the strings values that will be used on the pages), dimens (to set the margin or fontSize default for buttons, containers, etc), theme (to set the color pallet of the theme) and the colors defaults.
+9. at "values", you se the files "dimens" (to set sizes default - margin, font, etc. "theme" (to set the color pallet) and "colors" defaults. 
 
 10. Also, at "utils" folder we have a custom exception class

@@ -6,7 +6,7 @@ class Page2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.grey[850],
+      color: Colors.grey[0],
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[

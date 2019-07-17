@@ -20,6 +20,7 @@ class _ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final blocNavBottom = Provider.of<NavBottomBloc>(context);
+    blocNavBottom.setToolbarElevation(8);
 
     return Scaffold(
       drawer: CustomDrawer(),
