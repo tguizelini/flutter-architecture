@@ -25,7 +25,7 @@ class _ProfilePage extends StatelessWidget {
       
       appBar: Toolbar(
         title: "Profile Page",
-        elevation: 6,
+        elevation: 0,
         actions: <Widget>[
           IconButton(
             onPressed: () => CustomToast.show("Notification clicked"),
