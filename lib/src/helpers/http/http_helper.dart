@@ -1,35 +1,40 @@
-import 'package:dio/dio.dart';
 import 'package:flutter_architecture/src/helpers/storage/storage_helper.dart';
 import 'package:flutter_architecture/src/helpers/storage/storage_keys.dart';
 import 'package:flutter_architecture/src/repositories/base/base_url.dart' as BASE_URL;
+import 'package:dio/dio.dart';
 
 class HttpHelper {
   static Dio _client;
 
-  static Future<Dio> _getInstance({ bool isAuth, Map<String, dynamic> headers }) async {
+  static Future<Dio> _getInstance({ bool isAuth, bool withCookie ,bool withToken}) async {
+    final storageToken = await StorageHelper.get(StorageKeys.token);
+    final storageCookie = await StorageHelper.get(StorageKeys.cookie);
+
     if (_client == null) _client = Dio();
 
     if (isAuth == true) {
-      _client.options.headers = {
-        "Content-Type": "x-www-form-urlencoded"
-      };
-
+      _client.options.headers = { "Content-Type": "x-www-form-urlencoded" };
       return _client;
     }
 
-    if (headers != null) {
-      _client.options.headers = headers;
-      return _client;
-    }
-
-    final token = await StorageHelper.get(StorageKeys.token);
-    final cookie = await StorageHelper.get(StorageKeys.cookie);
-    
-    _client.options.headers = {
+    var headers = {
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer $token'
+      'Authorization': 'Bearer $storageToken'
     };
 
+    if(withToken == true)
+      headers = {
+        ...headers,
+        'Bearer': '$storageToken' 
+      };
+
+    if (withCookie == true)
+      headers = {
+        ...headers,
+        'Cookie': 'auxo_temis=$storageCookie'
+      };
+    
+    _client.options.headers = headers;
     return _client;
   }
 
@@ -39,34 +44,30 @@ class HttpHelper {
     final instance = await _getInstance(isAuth: true);
 
     FormData payload = new FormData.from({
-      "grant_type": "password",
-      "scope": "scope1 scope2 scope3",
       "username": codigo,
       "password": senha,
-      "client_id": "my_client_name",
-      "client_secret": "secret"
     });
 
     return instance.post(url, data: payload);
   }
 
-  static Future<Response> get(String url, { Map<String, dynamic> headers }) async {
-    final instance = await _getInstance(headers: headers);
+  static Future<Response> get(String url, { bool withCookie ,bool withToken}) async {
+    final instance = await _getInstance(withCookie: withCookie, withToken: withToken);
     return instance.get(url);
   }
 
-  static Future<Response> post(String url, { Map<String, dynamic> body, Map<String, dynamic> headers }) async {
-    final instance = await _getInstance(headers: headers);
+  static Future<Response> post(String url, { dynamic body, bool withToken, bool withCookie }) async {
+    final instance = await _getInstance(withCookie: true, withToken: true);
     return instance.post(url, data: body);
   } 
 
-  static Future<Response> put(String url, { Map<String, dynamic> body, Map<String, dynamic> headers }) async {
-    final instance = await _getInstance(headers: headers);
+  static Future<Response> put(String url, { dynamic body, bool withToken, bool withCookie }) async {
+    final instance = await _getInstance(withCookie: withCookie,withToken: withToken);
     return instance.put(url, data: body);
   } 
 
-  static Future<Response> delete(String url, { Map<String, dynamic> body, Map<String, dynamic> headers }) async {
-    final instance = await _getInstance(headers: headers);
+  static Future<Response> delete(String url, { dynamic body, bool withToken, bool withCookie }) async {
+    final instance = await _getInstance(withCookie: withCookie, withToken: withToken);
     return instance.delete(url);
   } 
 }
