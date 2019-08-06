@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_architecture/src/custom_widgets/button.dart';
-import 'package:flutter_architecture/src/custom_widgets/tag.dart';
 import 'package:flutter_architecture/src/custom_widgets/text.dart';
 import 'package:flutter_architecture/src/values/colors.dart' as colors;
 

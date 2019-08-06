@@ -2,22 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter_architecture/src/blocs/auth_bloc.dart';
 import 'package:flutter_architecture/src/custom_widgets/loading.dart';
 import 'package:flutter_architecture/src/pages/login/login_widget.dart';
-import 'package:flutter_architecture/src/providers/auth_provider.dart';
 import 'package:provider/provider.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   @override
-  Widget build(BuildContext context) => AuthProvider(child: _LoginPage());
+  _LoginPageState createState() => _LoginPageState();
 }
 
-class _LoginPage extends StatelessWidget with LoginWidget{
+class _LoginPageState extends State<LoginPage> with LoginWidget {
+  AuthBloc _bloc;
+
+  @override
+  void didChangeDependencies() {
+    _bloc = Provider.of<AuthBloc>(context);
+    
+    super.didChangeDependencies();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final bloc = Provider.of<AuthBloc>(context);
-
     return Loading(
       message: "Loading message",
-      status: bloc.loading,
+      status: _bloc.loading,
       child: Scaffold(
         resizeToAvoidBottomPadding: false,
 
@@ -26,7 +32,7 @@ class _LoginPage extends StatelessWidget with LoginWidget{
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               header(context),
-              form(context, bloc)
+              form(context, _bloc)
             ]
             
           )

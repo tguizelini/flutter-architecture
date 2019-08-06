@@ -1,4 +1,4 @@
-import 'package:flutter_architecture/src/blocs/base/bloc_base.dart';
+import 'package:flutter_architecture/src/blocs/_base/bloc_base.dart';
 import 'package:flutter_architecture/src/custom_widgets/nav_bottom_bar/models/nav_bottom_model.dart';
 import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';

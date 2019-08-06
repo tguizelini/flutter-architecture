@@ -1,8 +1,8 @@
 import 'package:flutter_architecture/src/repositories/auth_repository.dart';
 import 'package:rxdart/rxdart.dart';
 
-import 'base/bloc_base.dart';
-import 'base/validators.dart';
+import '_base/bloc_base.dart';
+import '_base/validators.dart';
 
 class AuthBloc extends BlocBase with Validators {
   AuthRepository _service;

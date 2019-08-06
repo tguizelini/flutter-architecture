@@ -6,20 +6,27 @@ import 'package:flutter_architecture/src/custom_widgets/toast.dart';
 import 'package:flutter_architecture/src/custom_widgets/toolbar.dart';
 import 'package:flutter_architecture/src/pages/profile/page1.dart';
 import 'package:flutter_architecture/src/pages/profile/page2.dart';
-import 'package:flutter_architecture/src/providers/profile_provider.dart';
 import 'package:provider/provider.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   @override
-  Widget build(BuildContext context) => ProfileProvider(child: _ProfilePage());
+  _ProfilePageState createState() => _ProfilePageState();
 }
 
-class _ProfilePage extends StatelessWidget {
-  final PageController _pvController = PageController();
+class _ProfilePageState extends State<ProfilePage> {
+  NavBottomBloc _blocNavBottom;
+  PageController _pvController;
+
+  @override
+  void didChangeDependencies() {
+    _pvController = PageController();
+    _blocNavBottom = Provider.of<NavBottomBloc>(context);
+    
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
-    final blocNavBottom = Provider.of<NavBottomBloc>(context);
     return Scaffold(
       drawer: CustomDrawer(),
       
@@ -36,7 +43,7 @@ class _ProfilePage extends StatelessWidget {
 
       body: PageView(
         controller: _pvController,
-        onPageChanged: (op) => blocNavBottom.setOptionActive(op),
+        onPageChanged: (op) => _blocNavBottom.setOptionActive(op),
         children: <Widget>[
           Page1(),
           Page2()
