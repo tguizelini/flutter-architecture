@@ -1,3 +1,4 @@
+/*
 import '../app_database.dart';
 import 'package:flutter_architecture/src/data/tables/user_table.dart';
 import 'package:moor_flutter/moor_flutter.dart';
@@ -8,3 +9,4 @@ class UserDAO extends DatabaseAccessor<AppDatabase> {
 
   //Future<List<IntimacaoTable>> get list => null;
 }
+*/

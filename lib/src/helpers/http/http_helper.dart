@@ -1,6 +1,5 @@
 import 'package:flutter_architecture/src/helpers/storage/storage_helper.dart';
 import 'package:flutter_architecture/src/helpers/storage/storage_keys.dart';
-import 'package:flutter_architecture/src/repositories/base/base_url.dart' as BASE_URL;
 import 'package:dio/dio.dart';
 
 class HttpHelper {
@@ -31,28 +30,15 @@ class HttpHelper {
     if (withCookie == true)
       headers = {
         ...headers,
-        'Cookie': 'auxo_temis=$storageCookie'
+        'Cookie': '$storageCookie'
       };
     
     _client.options.headers = headers;
     return _client;
   }
 
-  static Future<Response> authSSO(String codigo, String senha) async {
-    final String url = BASE_URL.auth;
-
-    final instance = await _getInstance(isAuth: true);
-
-    FormData payload = new FormData.from({
-      "username": codigo,
-      "password": senha,
-    });
-
-    return instance.post(url, data: payload);
-  }
-
   static Future<Response> get(String url, { bool withCookie ,bool withToken}) async {
-    final instance = await _getInstance(withCookie: withCookie, withToken: withToken);
+    final instance = await _getInstance(withCookie: withCookie,withToken: withToken);
     return instance.get(url);
   }
 
@@ -67,7 +53,7 @@ class HttpHelper {
   } 
 
   static Future<Response> delete(String url, { dynamic body, bool withToken, bool withCookie }) async {
-    final instance = await _getInstance(withCookie: withCookie, withToken: withToken);
+    final instance = await _getInstance(withCookie: withCookie,withToken: withToken);
     return instance.delete(url);
   } 
 }

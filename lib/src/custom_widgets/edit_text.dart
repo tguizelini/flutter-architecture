@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_architecture/src/values/colors.dart' as colors;
 import 'package:flutter_architecture/src/values/dimens.dart' as dimens;
 
-class EditText extends StatelessWidget {
+class EditText extends StatefulWidget {
   final bool autofocus;
   final Stream<dynamic> value;
   final Function(dynamic) onChange;
@@ -12,52 +12,67 @@ class EditText extends StatelessWidget {
   final bool password;
   final bool dark;
   final bool multiline;
+  final String labelText;
+  final String mask;
 
-  const EditText({
-    Key key, 
-    this.autofocus,
-    this.placeholder,
-    this.keyboardType,
-    this.onChange,
-    this.value,
-    this.password,
-    this.dark,
-    this.multiline
-  }) : super(key: key);
+  const EditText({Key key, this.autofocus, this.value, this.onChange, this.placeholder, this.keyboardType, this.password, this.dark, this.multiline, this.labelText, this.mask}) : super(key: key);
+
+  @override
+  _EditTextState createState() => _EditTextState();
+}
+
+class _EditTextState extends State<EditText> {
+  TextEditingController _controller;
+
+  @override
+  void didChangeDependencies() {
+    _controller = new TextEditingController();
+
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
-
+    
     return StreamBuilder<dynamic>(
-      stream: value,
+      stream: widget.value,
       builder: (context, snapshot) {
+        if (snapshot.data != null) {
+          _controller.text = snapshot.data;
+          _controller.selection = TextSelection.collapsed(offset: snapshot.data.length);
+        }
+
         return TextField(
-          obscureText: password == true ? true : false,
-          onChanged: onChange,
-          maxLines: multiline == true ? null : 1,
-          keyboardType: multiline == true ? TextInputType.multiline : keyboardType,
+          controller: _controller,
+          obscureText: widget.password == true ? true : false,
+          onChanged: (text) {
+            if (widget.onChange != null) widget.onChange(text);
+          },
+          maxLines: widget.multiline == true ? null : 1,
+          keyboardType: widget.multiline == true ? TextInputType.multiline : widget.keyboardType,
           style: TextStyle(
-            color: dark == true ? colors.backgroundColor : colors.primaryColor  //cor do texto ao digitar
+            color: widget.dark == true ? colors.backgroundColor : colors.primaryColor  //cor do texto ao digitar,
           ),
-          autofocus: autofocus == null ? false : true,
+          autofocus: widget.autofocus == null ? false : true,
           textCapitalization: TextCapitalization.none,
           decoration: InputDecoration(
-            hintText: placeholder,
-            labelText: placeholder,
+            hintText: snapshot.data == null ? "Holder" : snapshot.data ,
+            labelText: widget.labelText == null ? widget.placeholder: widget.labelText,
             errorText: snapshot.error,
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(
-                color: colors.primaryColorDark, //cor da borda 
+                color: colors.primaryColorDark, //cor da borda
                 width: 0.0
               ),
             ),
             hintStyle: TextStyle(
-              color: Colors.transparent, //cor do placeholder com foco
+              color:Colors.transparent, //cor do placeholder com foco
               fontSize: dimens.fontEditText
             ),
+            enabled: true,
             labelStyle: TextStyle(
               fontSize: dimens.fontEditText, 
-              color: dark == true ? colors.backgroundColor : colors.primaryColorDark //cor da label
+              color: widget.dark == true ? colors.backgroundColor : colors.primaryColorDark //cor da label
             ),
             border: OutlineInputBorder(
               borderSide: BorderSide(
@@ -67,8 +82,8 @@ class EditText extends StatelessWidget {
             ),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(
-                color: dark == true ? colors.backgroundColor : colors.primaryColor, //cor da label quando esta com focus
-                width: 0
+                color: widget.dark == true ? colors.backgroundColor : colors.primaryColorDark, //cor da label quando esta com focus
+                width: 1
               )
             )
           )

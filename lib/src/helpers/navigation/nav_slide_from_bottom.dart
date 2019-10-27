@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 
-class NavSlideFromRight extends PageRouteBuilder {
+class NavSlideFromBottom extends PageRouteBuilder {
   final Widget page;
   
-  NavSlideFromRight({ this.page }) : 
+  NavSlideFromBottom({ this.page }) : 
     super(pageBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
       return page;
     },
+    transitionDuration: Duration(milliseconds: 420),
     transitionsBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
       return new SlideTransition(
         position: Tween<Offset>(
-          begin: Offset(1.0, 0.0),
+          begin: Offset(0.0, 1.0),
           end: Offset(0.0, 0.0),
         ).animate(animation),
         child: child,

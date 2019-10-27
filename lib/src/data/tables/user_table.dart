@@ -1,3 +1,4 @@
+/*
 import 'package:moor_flutter/moor_flutter.dart';
 
 @DataClassName("user")
@@ -9,3 +10,4 @@ class UserTable extends Table {
   BoolColumn get active => boolean().nullable()();
   
 }
+*/

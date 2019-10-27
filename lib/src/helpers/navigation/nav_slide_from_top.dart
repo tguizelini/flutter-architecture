@@ -7,7 +7,7 @@ class NavSlideFromTop extends PageRouteBuilder {
     super(pageBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
       return page;
     },
-    transitionDuration: Duration(milliseconds: 380),
+    transitionDuration: Duration(milliseconds: 420),
     transitionsBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
       return new SlideTransition(
         position: Tween<Offset>(

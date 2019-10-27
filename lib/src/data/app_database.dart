@@ -1,3 +1,4 @@
+/*
 import 'package:moor_flutter/moor_flutter.dart';
 import 'tables/user_table.dart';
 import 'daos/user_dao.dart';
@@ -14,3 +15,4 @@ class AppDatabase extends _$AppDatabase {
   @override
   int get schemaVersion => 1; 
 }
+*/

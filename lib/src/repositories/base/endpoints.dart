@@ -5,8 +5,8 @@ class _Login {
 }
 
 class _MinhaLista {
-  final list = BASE_URL.base + "/api/Gerenciador/intimacoes?pagina=PARAM_PAGINA_FILTRO&filtrando=true&jsonPaginacaoDetalhe=";
+  final list = BASE_URL.base + "/api/list";
 }
 
 final login = _Login();
-final intimacao = _MinhaLista();
+final myList = _MinhaLista();

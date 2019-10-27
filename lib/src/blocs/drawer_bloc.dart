@@ -1,5 +1,5 @@
 import 'package:flutter_architecture/src/blocs/_base/bloc_base.dart';
-import 'package:flutter_architecture/src/helpers/nav/nav_no_animation.dart';
+import 'package:flutter_architecture/src/helpers/navigation/nav_no_animation.dart';
 import 'package:flutter_architecture/src/helpers/storage/storage_helper.dart';
 import 'package:flutter_architecture/src/helpers/storage/storage_keys.dart';
 import 'package:flutter_architecture/src/pages/login/login_page.dart';

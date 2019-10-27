@@ -3,13 +3,21 @@ import 'package:flutter_architecture/src/helpers/storage/storage_helper.dart';
 import 'package:flutter_architecture/src/helpers/storage/storage_keys.dart';
 import 'package:flutter_architecture/src/models/response_model.dart';
 import 'package:flutter_architecture/src/models/usuario_model.dart';
+import './base//endpoints.dart' as Endpoints;
 
 class AuthRepository {
   Future<ResponseModel> login(String login, String senha) async {
     ResponseModel response = ResponseModel();
     UsuarioModel user;
+
+    final String url = Endpoints.login.auth;
+
+    final payload = {
+      login, 
+      senha
+    };
     
-    final retAuth = HttpHelper.authSSO(login, senha);
+    final retAuth = HttpHelper.post(url, body: payload);
 
     await retAuth.then((res) {
       String token = res.data["access_token"];

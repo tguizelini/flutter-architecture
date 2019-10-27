@@ -7,8 +7,8 @@ import 'package:flutter_architecture/src/custom_widgets/divider_field.dart';
 import 'package:flutter_architecture/src/custom_widgets/edit_text.dart';
 import 'package:flutter_architecture/src/custom_widgets/logo.dart';
 import 'package:flutter_architecture/src/custom_widgets/text.dart';
-import 'package:flutter_architecture/src/helpers/nav/nav_slide_from_right.dart';
-import 'package:flutter_architecture/src/helpers/nav/nav_slide_from_top.dart';
+import 'package:flutter_architecture/src/helpers/navigation/nav_slide_from_right.dart';
+import 'package:flutter_architecture/src/helpers/navigation/nav_slide_from_top.dart';
 import 'package:flutter_architecture/src/pages/contact/contact_page.dart';
 import 'package:flutter_architecture/src/pages/profile/profile_page.dart';
 

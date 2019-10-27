@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Logo extends StatelessWidget {
-  var _assetsImage = new AssetImage("assets/logo.png");
+  final _assetsImage = new AssetImage("assets/logo.png");
 
   @override
   Widget build(BuildContext context) {
