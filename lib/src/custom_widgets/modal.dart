@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'button.dart';
-import 'divider_field.dart';
 import 'text.dart';
 
 class Modal {
-  static void show(
+  static Future show(
     BuildContext context, 
     { 
       IconData icon,
@@ -26,7 +24,7 @@ class Modal {
               Row(
                 children: <Widget>[
                   Icon(icon), 
-                  DividerField(width: 8.0),
+                  SizedBox(width: 8.0),
                   CustomText(text: title ?? "")
                 ]
               ),
@@ -35,7 +33,7 @@ class Modal {
               //CANCEL BUTTON
               if (cancelLabel != null)
                 FlatButton(
-                  child: CustomText(text: cancelLabel ?? "Button Label", accent: true),
+                  child: CustomText(text: cancelLabel ?? "Button Label", color: Colors.grey[400]),
                   onPressed: () {
                     if (cancelOnPress != null) cancelOnPress();
                     Navigator.pop(context);
@@ -53,9 +51,9 @@ class Modal {
                 ),
 
               if (cancelLabel != null)
-                CustomButton(
-                  label: confirmLabel,
-                  onPress: () {
+                FlatButton(
+                  child: CustomText(text: confirmLabel ?? "Button Label", accent: true),
+                  onPressed: () {
                     if (confirmOnPress != null) confirmOnPress();
                     Navigator.pop(context);
                   },

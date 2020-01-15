@@ -17,23 +17,8 @@ class CustomText extends StatelessWidget {
   final Color color;
   final int maxLines;
 
-  const CustomText({
-    Key key, 
-    this.title,
-    this.text, 
-    this.bold, 
-    this.big, 
-    this.small, 
-    this.center,
-    this.white, 
-    this.dark,
-    this.accent, 
-    this.primary, 
-    this.primaryDark,
-    this.color,
-    this.maxLines
-  }) : super(key: key);
-  
+  const CustomText({Key key, this.text, this.title, this.bold, this.big, this.small, this.center, this.white, this.dark, this.accent, this.primary, this.primaryDark, this.color, this.maxLines}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final dynamic isBold = bold == true ? FontWeight.bold : FontWeight.normal;
@@ -54,7 +39,7 @@ class CustomText extends StatelessWidget {
       white == true ? 
         Colors.white 
       : 
-        accent == true ? colors.accentColor : colors.primaryColor;
+        accent == true ? colors.accentLightColor : colors.primaryColor;
 
     return Text(
       textValue,

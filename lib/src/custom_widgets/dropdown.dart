@@ -1,9 +1,7 @@
-import 'package:flutter_architecture/src/custom_widgets/radio_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_architecture/src/values/colors.dart' as colors;
 import 'package:flutter_architecture/src/values/dimens.dart' as dimens;
 
-import 'divider_field.dart';
 import 'modal.dart';
 import 'text.dart';
 
@@ -27,13 +25,14 @@ class CustomDropdown extends StatelessWidget {
     if (items != null) 
       items.map((i) {
         options.add(
-          RadioButton(
-            onPress: () {
+          ListTile(
+            onTap: () {
              _controller.text = i; 
              if (onChoose != null) onChoose(i);
+             Navigator.pop(context);
             },
-            status: _controller.text == i ? true : false,
-            label: i,
+            //status: _controller.text == i ? true : false,
+            title: CustomText(text: i),
           )
         );
       }).toList();
@@ -42,16 +41,16 @@ class CustomDropdown extends StatelessWidget {
       controller: _controller,
       onChanged: (value) => null,
       enableInteractiveSelection: false,
+      focusNode: _AlwaysDisabledFocusNode(),
       cursorColor: Colors.white,
       onTap: () {
         Modal.show(
           context,
-          confirmLabel: "CONFIRMAR",
           body: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              CustomText(text: label, big: true),
-              DividerField(height: 40),
+              CustomText(text: label.toUpperCase(), bold: true, accent: true,),
+              SizedBox(height: 10),
               ...options
             ]
           )
@@ -95,4 +94,9 @@ class CustomDropdown extends StatelessWidget {
       )
     );
   }
+}
+
+class _AlwaysDisabledFocusNode extends FocusNode {
+  @override
+  bool get hasFocus => false;
 }

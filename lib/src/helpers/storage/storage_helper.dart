@@ -3,7 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class StorageHelper {
   static SharedPreferences _prefs;
 
-  static Future<void> _getInstance() async => _prefs = await SharedPreferences.getInstance();
+  static Future<dynamic> _getInstance() async => _prefs = await SharedPreferences.getInstance();
 
   static Future<String> get(String key) async {
     await _getInstance();
@@ -12,11 +12,11 @@ class StorageHelper {
 
   static void set(String key, dynamic value) async {
     await _getInstance();
-    _prefs.setString(key, value == null ? "" : value);
+    _prefs.setString(key, value);
   }
 
   static void remove(String key) async {
-    _getInstance();
+    await _getInstance();
     _prefs.remove(key);
   }
 }

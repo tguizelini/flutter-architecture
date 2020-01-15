@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_architecture/src/custom_widgets/logo.dart';
 import 'package:flutter_architecture/src/custom_widgets/text.dart';
 
 class Toolbar extends StatelessWidget implements PreferredSizeWidget {
-  const Toolbar({Key key, this.leading, this.title, this.actions, this.color, this.elevation}) : super(key: key);
-
   @override
   Size get preferredSize => Size.fromHeight(kToolbarHeight);
 
@@ -12,18 +11,26 @@ class Toolbar extends StatelessWidget implements PreferredSizeWidget {
   final List<Widget> actions;
   final Color color;
   final double elevation;
+  final bool logo;
+  final bool hideBackArrow;
+
+  const Toolbar({Key key, this.hideBackArrow, this.logo, this.leading, this.title, this.actions, this.color, this.elevation}) : super(key: key);
   
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: CustomText(
-        text: title,
-        accent: true,
-        big: true,
-      ),
+      automaticallyImplyLeading: hideBackArrow == true ? false : true,
+      title: logo == true ?
+          Center(child: Logo(header: true, small: true))
+        :
+          CustomText(
+            text: title,
+            accent: true,
+            big: true,
+          ),
       leading: leading,
       actions: actions,
-      elevation: elevation != null ? elevation : 6.0
+      elevation: elevation != null ? elevation : 0.0
     );
   }
 }

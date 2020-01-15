@@ -1,43 +1,37 @@
+import 'package:flutter_architecture/src/custom_widgets/toast.dart';
 import 'package:flutter_architecture/src/repositories/auth_repository.dart';
 import 'package:rxdart/rxdart.dart';
+import 'base/bloc_base.dart';
 
-import '_base/bloc_base.dart';
-import '_base/validators.dart';
+class AuthBloc extends BlocBase {
+  AuthRepository _service = AuthRepository();
 
-class AuthBloc extends BlocBase with Validators {
-  AuthRepository _service;
-
-  final _login = BehaviorSubject<String>.seeded("");
-  final _senha = BehaviorSubject<String>.seeded("");
+  final _login = BehaviorSubject<String>();
+  final _password = BehaviorSubject<String>();
 
   Observable<String> get login => _login.stream;
-  Function(String) get setLogin => _login.sink.add;
+  void setLogin(String value) => _login.sink.add(value);
 
-  Observable<String> get senha => _senha.stream;
-  Function(String) get setSenha => _senha.sink.add;
+  Observable<String> get password => _password.stream;
+  void setPassword(String value) => _password.sink.add(value);
 
-  Future<bool> signIn() async {
+  void signIn() async {
     setLoading(true);
-
-    _service = AuthRepository();
-    final ret = await _service.login(_login.value, _senha.value);
-
+    final ret = await _service.login(_login.value, _password.value);
     setLoading(false);
     
     if (ret.status == 200) {
-      return true;
+      CustomToast.show("Success");
     }
 
-    return false;
+    CustomToast.show(ret.message);
   }
 
   @override
   void dispose() {
     _login.close();
-    _senha.close();
+    _password.close();
 
-    print("AuthBloc dispose called");
-    
     super.dispose();
   }
 }

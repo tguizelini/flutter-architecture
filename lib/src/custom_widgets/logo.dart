@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 
 class Logo extends StatelessWidget {
-  final _assetsImage = new AssetImage("assets/logo.png");
+  final bool header;
+  final bool small;
+
+  const Logo({Key key, this.small, this.header}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var _logo = new AssetImage("assets/logo.png");
+    var _logoHeader= new AssetImage("assets/logo_header.png");
+
     return Image(
-      image: _assetsImage, 
-      //height: 600,
+      image: header == true ? _logoHeader : _logo,
+      width: small == true ? 180 : 350,
       //fit: BoxFit.cover,
     );
   }

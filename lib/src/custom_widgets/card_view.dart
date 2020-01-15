@@ -8,6 +8,7 @@ class CardView extends StatelessWidget {
   final double elevation;
   final Widget child;
   final Color backgroundColor;
+  final bool noCorner;
 
   const CardView({
     Key key, 
@@ -17,7 +18,8 @@ class CardView extends StatelessWidget {
     this.elevation,
     this.margin, 
     this.backgroundColor, 
-    this.child
+    this.child,
+    this.noCorner
   }) : super(key: key);
 
   @override
@@ -27,10 +29,9 @@ class CardView extends StatelessWidget {
         width: width,
         margin: margin,
         alignment: alignment,
-        color: backgroundColor,
         decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(8),
+          color: backgroundColor,
+          borderRadius: noCorner == true ? BorderRadius.circular(0) : BorderRadius.circular(8),
           boxShadow: [
               BoxShadow(
                 color: Colors.black12,

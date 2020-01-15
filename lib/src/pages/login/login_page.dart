@@ -10,32 +10,28 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> with LoginWidget {
-  AuthBloc _bloc;
+  AuthBloc blocAuth;
 
   @override
   void didChangeDependencies() {
-    _bloc = Provider.of<AuthBloc>(context);
-    
+    blocAuth = Provider.of<AuthBloc>(context);
     super.didChangeDependencies();
+  }
+
+  @override
+  void dispose() {
+    blocAuth.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Loading(
       message: "Loading message",
-      status: _bloc.loading,
+      status: blocAuth.loading,
       child: Scaffold(
-        resizeToAvoidBottomPadding: false,
-
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              header(context),
-              form(context, _bloc)
-            ]
-            
-          )
+        body: Container(
+          child: form(context: context, blocAuth: blocAuth)
         )
       )
     );
