@@ -4,22 +4,27 @@ This project structure was made thinking in productivity and easy maintenance.
 
 #### What it brings ?
 
-1. Bloc pattern (business layer)
+1. Bloc Pattern
 
 2. Provider package for dependency injection
 
 3. RxDart to manage states 
 
-4. Moor_Flutter, a SQLite ORM to work offline using a local database (similar to ROOM on Android Jetpack)
+4. SQFlite to work with SQLite
 
 5. Helper for make HTTP requests using Dio
 
 6. Helper for store data on device using Shared Preferences with a helper class
 
-7. Custom classes for page transitions animated (fromLeft, from Top, fromBottom and fromRight)
+7. Helper for check connection status
 
-8. Custom Widgets like Loading, CardView, ContainerCorner (with round corner shape), Toast, Snackbar, Modal, Dropdown, CustomDrawer and others.
+8. Custom classes for page transitions animated (fromLeft, from Top, fromBottom and fromRight)
 
-9. at "values", you se the files "dimens" (to set sizes default - margin, font, etc. "theme" (to set the color pallet) and "colors" defaults. 
+9. Custom Widgets like Loading, CardView, Toast, Snackbar, Modal, Dropdown, CustomDrawer and more
 
-10. Also, at "utils" folder we have a custom exception class
+10. The "values" folder, you will find the files:
+- "dimens": to set sizes defaults for margin, font, etc
+- "colors" set the color pallet
+- "theme": set the app's theme 
+
+11. The "utils" folder, we have a custom exception class and to manage JWT
