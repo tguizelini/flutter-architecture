@@ -14,8 +14,8 @@ class _LoginPageState extends State<LoginPage> with LoginWidget {
 
   @override
   void didChangeDependencies() {
-    blocAuth = Provider.of<AuthBloc>(context);
     super.didChangeDependencies();
+    blocAuth = Provider.of<AuthBloc>(context);
   }
 
   @override
