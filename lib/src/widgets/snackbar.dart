@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_architecture/src/custom_widgets/text.dart';
+import 'package:flutter_architecture/src/widgets/text.dart';
 import 'package:flutter_architecture/src/values/colors.dart' as colors;
 /*
 class CustomSnackbarAction {

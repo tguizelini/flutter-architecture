@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_architecture/src/blocs/auth_bloc.dart';
-import 'package:flutter_architecture/src/custom_widgets/loading.dart';
+import 'package:flutter_architecture/src/widgets/loading.dart';
 import 'package:flutter_architecture/src/pages/login/login_widget.dart';
 import 'package:provider/provider.dart';
 

@@ -1,4 +1,4 @@
-import 'package:flutter_architecture/src/custom_widgets/toast.dart';
+import 'package:flutter_architecture/src/widgets/toast.dart';
 import 'package:flutter_architecture/src/repositories/auth_repository.dart';
 import 'package:rxdart/rxdart.dart';
 import 'base/bloc_base.dart';

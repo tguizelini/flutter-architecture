@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_architecture/src/custom_widgets/logo.dart';
-import 'package:flutter_architecture/src/custom_widgets/text.dart';
+import 'package:flutter_architecture/src/widgets/logo.dart';
+import 'package:flutter_architecture/src/widgets/text.dart';
 
 class Toolbar extends StatelessWidget implements PreferredSizeWidget {
   @override
