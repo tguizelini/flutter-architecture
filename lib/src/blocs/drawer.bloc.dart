@@ -12,4 +12,9 @@ class DrawerBloc {
 
     Navigator.pushReplacement(context, NavNoAnimation(page: LoginPage()));
   }
+
+
+  void dispose() {
+    //dispose observables if make sense
+  }
 }

@@ -10,12 +10,18 @@ class CustomDrawer extends StatefulWidget {
 }
 
 class _CustomDrawerState extends State<CustomDrawer> {
-  DrawerBloc blocDrawer;
+  DrawerBloc bloc;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    blocDrawer = DrawerBloc();
+    bloc = DrawerBloc();
+  }
+
+  @override
+  void dispose() {
+    bloc.dispose();
+    super.dispose();
   }
 
   @override
@@ -59,12 +65,12 @@ class _CustomDrawerState extends State<CustomDrawer> {
             Padding(
               padding: const EdgeInsets.only(bottom: 16.0),
               child: ListTile(
-                  onTap: () => blocDrawer.logout(context),
+                  onTap: () => bloc.logout(context),
                   leading: Icon(
                     Icons.exit_to_app,
                     color: colors.primaryColor,
                   ),
-                  title: CustomText(text: "Sair")
+                  title: CustomText(text: "Exit")
               ),
             )
           ],
