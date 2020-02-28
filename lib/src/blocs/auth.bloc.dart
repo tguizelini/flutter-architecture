@@ -10,7 +10,7 @@ class AuthBloc {
   final _password = BehaviorSubject<String>();
 
   Observable<bool> get loading => _loading.stream;
-  void setLoading(bool value) => _loading.sink.add(value);
+  void _setLoading(bool value) => _loading.sink.add(value);
 
   Observable<String> get login => _login.stream;
   void setLogin(String value) => _login.sink.add(value);
@@ -19,11 +19,11 @@ class AuthBloc {
   void setPassword(String value) => _password.sink.add(value);
 
   void signIn() async {
-    setLoading(true);
+    _setLoading(true);
 
     final ret = await _repository.login(_login.value, _password.value);
 
-    setLoading(false);
+    _setLoading(false);
     
     if (ret.status == 200) {
       CustomToast.show("Success");
