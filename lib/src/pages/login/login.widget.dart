@@ -6,7 +6,7 @@ import 'package:flutter_architecture/src/widgets/logo.dart';
 import 'package:flutter_architecture/src/values/dimens.dart' as dimens;
 
 class LoginWidget {
-  Widget form({ BuildContext context, AuthBloc blocAuth }) {
+  Widget form(BuildContext context, AuthBloc bloc) {
     return Padding(
       padding: EdgeInsets.all(dimens.margin),
       child: Column(
@@ -18,23 +18,23 @@ class LoginWidget {
 
           EditText(
             placeholder: "LOGIN",
-            value: blocAuth.login,
-            onChange: (value) => blocAuth.setLogin(value),
+            value: bloc.login,
+            onChange: (value) => bloc.setLogin(value),
           ),
 
           SizedBox(height: 10),
 
           EditText(
             placeholder: "PASSWORD",
-            value: blocAuth.password,
-            onChange: (value) => blocAuth.setPassword(value),
+            value: bloc.password,
+            onChange: (value) => bloc.setPassword(value),
           ),
 
           SizedBox(height: 20),
 
           CustomButton(
             label: "Sign In",
-            onPress: () => blocAuth.signIn(),
+            onPress: () => bloc.signIn(),
           )
         ],
       ),

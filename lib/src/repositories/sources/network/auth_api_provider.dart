@@ -1,4 +1,4 @@
-import 'package:flutter_architecture/src/helpers/http_helper.dart';
+import 'package:flutter_architecture/src/helpers/http/http_helper.dart';
 import 'package:flutter_architecture/src/helpers/storage/storage_helper.dart';
 import 'package:flutter_architecture/src/helpers/storage/storage_keys.dart';
 import 'package:flutter_architecture/src/models/response_model.dart';

@@ -4,6 +4,8 @@ import 'package:flutter_architecture/src/blocs/auth_bloc.dart';
 import 'package:flutter_architecture/src/blocs/drawer_bloc.dart';
 import 'package:provider/provider.dart';
 
+import '../auth_bloc.dart';
+
 class BlocProvider extends StatelessWidget {
   final Widget child;
 
@@ -15,8 +17,8 @@ class BlocProvider extends StatelessWidget {
 
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => AuthBloc(), lazy: false),
-        ChangeNotifierProvider(create: (_) => DrawerBloc(), lazy: false)
+        Provider<AuthBloc>.value(value: new AuthBloc()),
+        Provider<DrawerBloc>.value(value: new DrawerBloc())
       ],
       child: child
     );

@@ -1,13 +1,16 @@
 import 'package:flutter_architecture/src/widgets/toast.dart';
 import 'package:flutter_architecture/src/repositories/auth_repository.dart';
 import 'package:rxdart/rxdart.dart';
-import 'base/bloc_base.dart';
 
-class AuthBloc extends BlocBase {
-  AuthRepository _service = AuthRepository();
+class AuthBloc {
+  AuthRepository _repository = new AuthRepository();
 
+  final _loading = BehaviorSubject<bool>();
   final _login = BehaviorSubject<String>();
   final _password = BehaviorSubject<String>();
+
+  Observable<bool> get loading => _loading.stream;
+  void setLoading(bool value) => _loading.sink.add(value);
 
   Observable<String> get login => _login.stream;
   void setLogin(String value) => _login.sink.add(value);
@@ -17,7 +20,9 @@ class AuthBloc extends BlocBase {
 
   void signIn() async {
     setLoading(true);
-    final ret = await _service.login(_login.value, _password.value);
+
+    final ret = await _repository.login(_login.value, _password.value);
+
     setLoading(false);
     
     if (ret.status == 200) {
@@ -27,11 +32,9 @@ class AuthBloc extends BlocBase {
     CustomToast.show(ret.message);
   }
 
-  @override
   void dispose() {
+    _loading.close();
     _login.close();
     _password.close();
-
-    super.dispose();
   }
 }

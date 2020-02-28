@@ -1,6 +1,6 @@
-import 'package:flutter_architecture/src/data/network/auth_api_provider.dart';
 import 'package:flutter_architecture/src/helpers/connection_helper.dart';
 import 'package:flutter_architecture/src/models/response_model.dart';
+import 'package:flutter_architecture/src/repositories/sources/network/auth_api_provider.dart';
 
 class AuthRepository {
   AuthApiProvider api = AuthApiProvider();

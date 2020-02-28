@@ -1,4 +1,4 @@
-import 'package:flutter_architecture/src/helpers/http_helper.dart';
+import 'package:flutter_architecture/src/helpers/http/http_helper.dart';
 import 'package:flutter_architecture/src/models/response_model.dart';
 import 'package:flutter_architecture/src/models/user_model.dart';
 import './base/endpoints.dart' as Endpoints;
@@ -24,7 +24,7 @@ class UserApiProvider{
       
       response.status = 500;
       response.data = e;
-      response.message = "Nenhum usuário encontrado";
+      response.message = "Server Error";
     });
     
     return response;

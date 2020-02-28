@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_architecture/src/blocs/auth_bloc.dart';
 import 'package:flutter_architecture/src/widgets/loading.dart';
-import 'package:flutter_architecture/src/pages/login/login_widget.dart';
+import 'package:flutter_architecture/src/pages/login/login.widget.dart';
 import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
@@ -10,17 +10,17 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> with LoginWidget {
-  AuthBloc blocAuth;
+  AuthBloc bloc;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    blocAuth = Provider.of<AuthBloc>(context);
+    bloc = Provider.of<AuthBloc>(context);
   }
 
   @override
   void dispose() {
-    blocAuth.dispose();
+    bloc.dispose();
     super.dispose();
   }
 
@@ -28,10 +28,10 @@ class _LoginPageState extends State<LoginPage> with LoginWidget {
   Widget build(BuildContext context) {
     return Loading(
       message: "Loading message",
-      status: blocAuth.loading,
+      status: bloc.loading,
       child: Scaffold(
         body: Container(
-          child: form(context: context, blocAuth: blocAuth)
+          child: form(context, bloc)
         )
       )
     );
