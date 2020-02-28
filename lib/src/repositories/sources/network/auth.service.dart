@@ -1,8 +1,8 @@
 import 'package:flutter_architecture/src/helpers/http/http.helper.dart';
 import 'package:flutter_architecture/src/helpers/storage/storage.helper.dart';
 import 'package:flutter_architecture/src/helpers/storage/storage.keys.dart';
-import 'package:flutter_architecture/src/models/response_model.dart';
-import 'package:flutter_architecture/src/models/user_model.dart';
+import 'package:flutter_architecture/src/models/response.model.dart';
+import 'package:flutter_architecture/src/models/user.model.dart';
 import './base/endpoints.dart' as Endpoints;
 
 class AuthService{

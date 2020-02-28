@@ -1,5 +1,5 @@
 import 'package:flutter_architecture/src/helpers/connection.helper.dart';
-import 'package:flutter_architecture/src/models/response_model.dart';
+import 'package:flutter_architecture/src/models/response.model.dart';
 import 'package:flutter_architecture/src/repositories/sources/network/auth.service.dart';
 
 class AuthRepository {
