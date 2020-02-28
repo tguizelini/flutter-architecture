@@ -1,4 +1,4 @@
-import 'package:flutter_architecture/src/helpers/http/http_helper.dart';
+import 'package:flutter_architecture/src/helpers/http/http.helper.dart';
 import 'package:flutter_architecture/src/models/response_model.dart';
 import 'package:flutter_architecture/src/models/user_model.dart';
 import './base/endpoints.dart' as Endpoints;

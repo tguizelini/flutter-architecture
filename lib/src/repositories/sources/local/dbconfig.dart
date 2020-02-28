@@ -1,5 +1,6 @@
-import 'package:flutter_architecture/src/repositories/sources/local/tables/todo_table.dart';
 import 'package:sqflite/sqflite.dart';
+
+import 'tables/todo.table.dart';
 
 class DbConfig {
   static Database _db;

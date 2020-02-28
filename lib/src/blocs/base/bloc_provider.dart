@@ -1,10 +1,9 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_architecture/src/blocs/auth_bloc.dart';
-import 'package:flutter_architecture/src/blocs/drawer_bloc.dart';
 import 'package:provider/provider.dart';
 
-import '../auth_bloc.dart';
+import 'package:flutter_architecture/src/blocs/auth.bloc.dart';
+import 'package:flutter_architecture/src/blocs/drawer.bloc.dart';
 
 class BlocProvider extends StatelessWidget {
   final Widget child;

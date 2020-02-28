@@ -1,11 +1,11 @@
-import 'package:flutter_architecture/src/helpers/http/http_helper.dart';
-import 'package:flutter_architecture/src/helpers/storage/storage_helper.dart';
-import 'package:flutter_architecture/src/helpers/storage/storage_keys.dart';
+import 'package:flutter_architecture/src/helpers/http/http.helper.dart';
+import 'package:flutter_architecture/src/helpers/storage/storage.helper.dart';
+import 'package:flutter_architecture/src/helpers/storage/storage.keys.dart';
 import 'package:flutter_architecture/src/models/response_model.dart';
 import 'package:flutter_architecture/src/models/user_model.dart';
 import './base/endpoints.dart' as Endpoints;
 
-class AuthApiProvider{
+class AuthService{
   Future<ResponseModel> login(String login, String senha) async {
     ResponseModel response = ResponseModel();
     UserModel user;

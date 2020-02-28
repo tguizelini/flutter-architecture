@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_architecture/src/blocs/auth_bloc.dart';
+import 'package:flutter_architecture/src/blocs/auth.bloc.dart';
 import 'package:flutter_architecture/src/widgets/button.dart';
 import 'package:flutter_architecture/src/widgets/edit_text.dart';
 import 'package:flutter_architecture/src/widgets/logo.dart';

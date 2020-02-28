@@ -1,4 +1,4 @@
-import 'package:flutter_architecture/src/blocs/drawer_bloc.dart';
+import 'package:flutter_architecture/src/blocs/drawer.bloc.dart';
 import 'package:flutter_architecture/src/widgets/text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
