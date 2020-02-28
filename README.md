@@ -26,5 +26,3 @@ This project structure was made thinking in productivity and easy maintenance.
 - "dimens": to set sizes defaults for margin, font, etc
 - "colors" set the color pallet
 - "theme": set the app's theme 
-
-11. The "utils" folder, we have a custom exception class and to manage JWT
