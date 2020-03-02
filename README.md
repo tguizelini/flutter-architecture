@@ -1,4 +1,4 @@
-# A Flutter Architecture ready for big projects
+# Clean Architecture with Flutter
 
 This project structure was made thinking in productivity and easy maintenance.
 
@@ -6,9 +6,9 @@ This project structure was made thinking in productivity and easy maintenance.
 
 1. Bloc Pattern
 
-2. Provider package for dependency injection
+2. GetIt package for dependency injection
 
-3. RxDart to manage states 
+3. MobX to manage states 
 
 4. SQFlite to work with SQLite
 
