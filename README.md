@@ -1,4 +1,4 @@
-# Flutter
+# Flutter Architecture
 
 This project structure was made thinking in productivity and easy maintenance.
 

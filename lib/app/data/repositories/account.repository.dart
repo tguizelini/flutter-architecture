@@ -1,8 +1,8 @@
 import 'package:flutter_architecture/app/data/sources/network/auth.service.dart';
 import 'package:flutter_architecture/app/domain/models/response.model.dart';
 import 'package:flutter_architecture/app/domain/repositories/account.repository.dart';
-import 'package:flutter_architecture/core/device/connection/connection.helper.dart';
 import 'package:flutter_architecture/core/di/service_locator.dart';
+import 'package:flutter_architecture/device/connection/connection.helper.dart';
 
 class AccountRepository implements IAccountRepository {
   AuthService service = serviceLocator<AuthService>();
