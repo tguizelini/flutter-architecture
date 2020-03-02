@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_architecture/app/presentation/controllers/login.controller.dart';
+import 'package:flutter_architecture/app/presentation/viewmodels/login.viewmodel.dart';
 import 'package:flutter_architecture/app/presentation/widgets/button.dart';
 import 'package:flutter_architecture/app/presentation/widgets/edit_text.dart';
 import 'package:flutter_architecture/app/presentation/widgets/logo.dart';
+import 'package:flutter_architecture/core/di/service_locator.dart';
 import 'package:flutter_architecture/core/values/dimens.dart' as dimens;
 
 class LoginWidget {
-  Widget form(BuildContext context, LoginController controller) {
+  final vm = serviceLocator<LoginViewModel>();
+  
+  Widget form(BuildContext context) {
     return Padding(
       padding: EdgeInsets.all(dimens.margin),
       child: Column(
@@ -18,23 +21,23 @@ class LoginWidget {
 
           EditText(
             placeholder: "LOGIN",
-            value: controller.store.login,
-            onChange: (value) => controller.store.setLogin(value),
+            value: vm.login,
+            onChange: (value) => vm.setLogin(value),
           ),
 
           SizedBox(height: 10),
 
           EditText(
             placeholder: "PASSWORD",
-            value: controller.store.password,
-            onChange: (value) => controller.store.setPassword(value),
+            value: vm.password,
+            onChange: (value) => vm.setPassword(value),
           ),
 
           SizedBox(height: 20),
 
           CustomButton(
             label: "Sign In",
-            onPress: () => controller.signIn(),
+            onPress: () => vm.signIn(),
           )
         ],
       ),

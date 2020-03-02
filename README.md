@@ -4,7 +4,7 @@ This project structure was made thinking in productivity and easy maintenance.
 
 #### What it brings ?
 
-1. Clean Architecture
+1. Clean Architecture with MVVM
 
 2. Get_It for dependency injection
 

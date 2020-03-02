@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_architecture/app/presentation/viewmodels/drawer.viewmodel.dart';
+import 'package:flutter_architecture/core/di/service_locator.dart';
 import 'package:flutter_architecture/core/values/colors.dart' as colors;
-import 'package:flutter_architecture/app/presentation/controllers/drawerbar.controller.dart';
 import 'package:flutter_architecture/app/presentation/widgets/text.dart';
 
 class CustomDrawer extends StatefulWidget {
@@ -10,7 +11,7 @@ class CustomDrawer extends StatefulWidget {
 }
 
 class _CustomDrawerState extends State<CustomDrawer> {
-  DrawerbarController controller;
+  final vm = serviceLocator<DrawerViewModel>();
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +54,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
             Padding(
               padding: const EdgeInsets.only(bottom: 16.0),
               child: ListTile(
-                  onTap: () => controller.logout(context),
+                  onTap: () => vm.logout(context),
                   leading: Icon(
                     Icons.exit_to_app,
                     color: colors.primaryColor,

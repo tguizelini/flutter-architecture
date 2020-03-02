@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'user.store.dart';
+part of 'login.viewmodel.dart';
 
 // **************************************************************************
 // StoreGenerator
@@ -8,25 +8,25 @@ part of 'user.store.dart';
 
 // ignore_for_file: non_constant_identifier_names, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
-mixin _$UserStore on _UserStoreBase, Store {
-  final _$loadingAtom = Atom(name: '_UserStoreBase.loading');
+mixin _$LoginViewModel on _LoginViewModelBase, Store {
+  final _$isLoadingAtom = Atom(name: '_LoginViewModelBase.isLoading');
 
   @override
-  bool get loading {
-    _$loadingAtom.context.enforceReadPolicy(_$loadingAtom);
-    _$loadingAtom.reportObserved();
-    return super.loading;
+  bool get isLoading {
+    _$isLoadingAtom.context.enforceReadPolicy(_$isLoadingAtom);
+    _$isLoadingAtom.reportObserved();
+    return super.isLoading;
   }
 
   @override
-  set loading(bool value) {
-    _$loadingAtom.context.conditionallyRunInAction(() {
-      super.loading = value;
-      _$loadingAtom.reportChanged();
-    }, _$loadingAtom, name: '${_$loadingAtom.name}_set');
+  set isLoading(bool value) {
+    _$isLoadingAtom.context.conditionallyRunInAction(() {
+      super.isLoading = value;
+      _$isLoadingAtom.reportChanged();
+    }, _$isLoadingAtom, name: '${_$isLoadingAtom.name}_set');
   }
 
-  final _$loginAtom = Atom(name: '_UserStoreBase.login');
+  final _$loginAtom = Atom(name: '_LoginViewModelBase.login');
 
   @override
   String get login {
@@ -43,7 +43,7 @@ mixin _$UserStore on _UserStoreBase, Store {
     }, _$loginAtom, name: '${_$loginAtom.name}_set');
   }
 
-  final _$passwordAtom = Atom(name: '_UserStoreBase.password');
+  final _$passwordAtom = Atom(name: '_LoginViewModelBase.password');
 
   @override
   String get password {
@@ -60,43 +60,43 @@ mixin _$UserStore on _UserStoreBase, Store {
     }, _$passwordAtom, name: '${_$passwordAtom.name}_set');
   }
 
-  final _$_UserStoreBaseActionController =
-      ActionController(name: '_UserStoreBase');
+  final _$_LoginViewModelBaseActionController =
+      ActionController(name: '_LoginViewModelBase');
 
   @override
-  dynamic setLoading(bool value) {
-    final _$actionInfo = _$_UserStoreBaseActionController.startAction();
+  dynamic _setLoading(bool value) {
+    final _$actionInfo = _$_LoginViewModelBaseActionController.startAction();
     try {
-      return super.setLoading(value);
+      return super._setLoading(value);
     } finally {
-      _$_UserStoreBaseActionController.endAction(_$actionInfo);
+      _$_LoginViewModelBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
   dynamic setLogin(String value) {
-    final _$actionInfo = _$_UserStoreBaseActionController.startAction();
+    final _$actionInfo = _$_LoginViewModelBaseActionController.startAction();
     try {
       return super.setLogin(value);
     } finally {
-      _$_UserStoreBaseActionController.endAction(_$actionInfo);
+      _$_LoginViewModelBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
   dynamic setPassword(String value) {
-    final _$actionInfo = _$_UserStoreBaseActionController.startAction();
+    final _$actionInfo = _$_LoginViewModelBaseActionController.startAction();
     try {
       return super.setPassword(value);
     } finally {
-      _$_UserStoreBaseActionController.endAction(_$actionInfo);
+      _$_LoginViewModelBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
   String toString() {
     final string =
-        'loading: ${loading.toString()},login: ${login.toString()},password: ${password.toString()}';
+        'isLoading: ${isLoading.toString()},login: ${login.toString()},password: ${password.toString()}';
     return '{$string}';
   }
 }
