@@ -18,16 +18,16 @@ class LoginWidget {
 
           EditText(
             placeholder: "LOGIN",
-            value: controller.login,
-            onChange: (value) => controller.setLogin(value),
+            value: controller.store.login,
+            onChange: (value) => controller.store.setLogin(value),
           ),
 
           SizedBox(height: 10),
 
           EditText(
             placeholder: "PASSWORD",
-            value: controller.password,
-            onChange: (value) => controller.setPassword(value),
+            value: controller.store.password,
+            onChange: (value) => controller.store.setPassword(value),
           ),
 
           SizedBox(height: 20),

@@ -1,18 +1,18 @@
-# Clean Architecture with Flutter
+# Flutter
 
 This project structure was made thinking in productivity and easy maintenance.
 
 #### What it brings ?
 
-1. Bloc Pattern
+1. Clean Architecture
 
-2. GetIt package for dependency injection
+2. Get_It for dependency injection
 
 3. MobX to manage states 
 
 4. SQFlite to work with SQLite
 
-5. Helper for make HTTP requests using Dio
+5. HTTP requests using Dio
 
 6. Helper for store data on device using Shared Preferences with a helper class
 

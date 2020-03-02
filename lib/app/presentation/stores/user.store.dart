@@ -13,7 +13,7 @@ abstract class _UserStoreBase with Store {
 
   @observable
   String login = "";
-
+ 
   @action
   setLogin(String value) => login = value;
 

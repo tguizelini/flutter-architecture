@@ -25,11 +25,9 @@ class Loading extends StatefulWidget {
 class _LoadingState extends State<Loading> {
   @override
   Widget build(BuildContext context) {
-    return Observer(builder: (_) {
-      return Stack(
-        children: <Widget>[widget.child, _loading(widget.status)],
-      );
-    });
+    return Stack(
+      children: <Widget>[widget.child, _loading(widget.status)]
+    );
   }
 
   Widget _loading(bool loading) {

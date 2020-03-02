@@ -1,12 +1,14 @@
 import 'package:flutter_architecture/app/data/mappers/user.mapper.dart';
 import 'package:flutter_architecture/app/data/sources/storage/storage.helper.dart';
-import 'package:flutter_architecture/app/data/sources/storage/storage.keys.dart';
 import 'package:flutter_architecture/app/domain/models/response.model.dart';
-import 'package:flutter_architecture/core/device/http/http.helper.dart';
+import 'package:flutter_architecture/core/di/components/http_client.dart';
+import 'package:flutter_architecture/core/di/service_locator.dart';
 
 import './base/endpoints.dart' as Endpoints;
 
 class AuthService{
+  final client = serviceLocator<HttpClient>();
+
   Future<ResponseModel> login(String login, String senha) async {
     ResponseModel response = ResponseModel();
 
@@ -14,7 +16,7 @@ class AuthService{
 
     final payload = {login, senha};
     
-    final retAuth = HttpHelper.post(url, body: payload);
+    final retAuth = client.post(url, body: payload);
 
     await retAuth.then((res) {
       String token = res.data["access_token"];

@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 import 'package:image_picker/image_picker.dart';
 
-class CustomCamera {
+class Camera {
   static Future<String> openCamera() async {
     final image = await ImagePicker.pickImage(source: ImageSource.camera, imageQuality: 15);
 

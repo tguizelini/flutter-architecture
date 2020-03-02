@@ -1,25 +1,26 @@
 import 'package:flutter_architecture/app/data/mappers/user.mapper.dart';
 import 'package:flutter_architecture/app/domain/models/response.model.dart';
-import 'package:flutter_architecture/core/device/http/http.helper.dart';
+import 'package:flutter_architecture/core/di/components/http_client.dart';
+import 'package:flutter_architecture/core/di/service_locator.dart';
 
 import './base/endpoints.dart' as Endpoints;
 
-class UserApiProvider{
+class UserService{
+  final client = serviceLocator<HttpClient>();
+  
   Future<ResponseModel> list() async {
     ResponseModel response = ResponseModel();
 
     final String url = Endpoints.myList.list;
 
-    final ret= HttpHelper.get(url);
+    final ret = client.get(url);
 
     await ret.then((res) {
       response.status = res.statusCode;
-      response.data = UserMapper.fromJsonList(res.data);;
+      response.data = UserMapper.fromJsonList(res.data);
       response.message = res.statusMessage;
     })
     .catchError((e) {
-      print("e -> $e");
-      
       response.status = 500;
       response.data = e;
       response.message = "Server Error";

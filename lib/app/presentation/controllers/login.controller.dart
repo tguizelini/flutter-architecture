@@ -1,26 +1,25 @@
-class LoginController{
-  bool loading = false;
-  setLoading(bool value) => loading = value;
+import 'package:flutter_architecture/app/domain/models/response.model.dart';
+import 'package:flutter_architecture/app/domain/usecases/login.usecase.dart';
+import 'package:flutter_architecture/app/presentation/stores/user.store.dart';
+import 'package:flutter_architecture/app/presentation/widgets/toast.dart';
+import 'package:flutter_architecture/core/di/components/app_store.dart';
+import 'package:flutter_architecture/core/di/service_locator.dart';
 
-  String login = "";
-  setLogin(String value) => login = value;
-
-  String password = "";
-  setPassword(String value) => password = value;  
+class LoginController {
+  final LoginUseCase uc = serviceLocator<LoginUseCase>();
+  final UserStore store = serviceLocator<AppStore>().user;
   
   void signIn() async {
-    /*
-    _setLoading(true);
+    store.setLoading(true);
 
-    final ret = await _repository.login(_login.value, _password.value);
+    ResponseModel ret = await uc.login(store.login, store.password);
 
-    _setLoading(false);
+    store.setLoading(false);
     
     if (ret.status == 200) {
       CustomToast.show("Success");
     }
 
     CustomToast.show(ret.message);
-    */
   }
 }

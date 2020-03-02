@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_architecture/core/values/colors.dart' as colors;
 import 'package:flutter_architecture/core/values/dimens.dart' as dimens;
-import 'package:flutter_mobx/flutter_mobx.dart';
 
 class EditText extends StatefulWidget {
   final bool autofocus;
@@ -36,55 +35,51 @@ class _EditTextState extends State<EditText> {
   @override
   Widget build(BuildContext context) {
 
-    return Observer(
-        builder: (_) {
-          return TextField(
-              controller: _controller,
-              obscureText: widget.password == true ? true : false,
-              onChanged: (text) {
-                if (widget.onChange != null) widget.onChange(text);
-              },
-              maxLines: widget.multiline == true ? null : 1,
-              keyboardType: widget.multiline == true ? TextInputType.multiline : widget.keyboardType,
-              style: TextStyle(
-                  color: widget.dark == true ? colors.backgroundColor : colors.primaryColor  //cor do texto ao digitar,
-              ),
-              autofocus: widget.autofocus == null ? false : true,
-              textCapitalization: TextCapitalization.none,
-              decoration: InputDecoration(
-                  hintText: widget.value == null ? "Holder" : widget.value,
-                  labelText: widget.labelText == null ? widget.placeholder: widget.labelText,
-                  errorText: widget.errorText,
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                        color: widget.dark == true ? Colors.white : colors.primaryColorDark, //cor da borda
-                        width: 0.0
-                    ),
-                  ),
-                  hintStyle: TextStyle(
-                      color: Colors.transparent, //cor do placeholder com foco
-                      fontSize: dimens.fontEditText
-                  ),
-                  enabled: true,
-                  labelStyle: TextStyle(
-                      fontSize: dimens.fontEditText,
-                      color: widget.dark == true ? colors.accentLightColor: colors.accentLightColor //cor da label
-                  ),
-                  border: OutlineInputBorder(
-                      borderSide: BorderSide(
-                          color: colors.accentLightColor, //cor da label quando esta com focus
-                          width: 0
-                      )
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                          color: widget.dark == true ? colors.backgroundColor : colors.primaryColorDark, //cor da label quando esta com focus
-                          width: 1
-                      )
-                  )
+    return TextField(
+      controller: _controller,
+      obscureText: widget.password == true ? true : false,
+      onChanged: (text) {
+        if (widget.onChange != null) widget.onChange(text);
+      },
+      maxLines: widget.multiline == true ? null : 1,
+      keyboardType: widget.multiline == true ? TextInputType.multiline : widget.keyboardType,
+      style: TextStyle(
+          color: widget.dark == true ? colors.backgroundColor : colors.primaryColor  //cor do texto ao digitar,
+      ),
+      autofocus: widget.autofocus == null ? false : true,
+      textCapitalization: TextCapitalization.none,
+      decoration: InputDecoration(
+          hintText: widget.value == null ? "Holder" : widget.value,
+          labelText: widget.labelText == null ? widget.placeholder: widget.labelText,
+          errorText: widget.errorText,
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+                color: widget.dark == true ? Colors.white : colors.primaryColorDark, //cor da borda
+                width: 0.0
+            ),
+          ),
+          hintStyle: TextStyle(
+              color: Colors.transparent, //cor do placeholder com foco
+              fontSize: dimens.fontEditText
+          ),
+          enabled: true,
+          labelStyle: TextStyle(
+              fontSize: dimens.fontEditText,
+              color: widget.dark == true ? colors.accentLightColor: colors.accentLightColor //cor da label
+          ),
+          border: OutlineInputBorder(
+              borderSide: BorderSide(
+                  color: colors.accentLightColor, //cor da label quando esta com focus
+                  width: 0
               )
-          );
-        }
+          ),
+          focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                  color: widget.dark == true ? colors.backgroundColor : colors.primaryColorDark, //cor da label quando esta com focus
+                  width: 1
+              )
+          )
+      )
     );
   }
 }
