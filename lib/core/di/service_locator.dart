@@ -19,13 +19,12 @@ Future<void> setupLocator() async {
   serviceLocator.registerLazySingleton<AuthService>(() => new AuthService());
   serviceLocator.registerLazySingleton<UserService>(() => new UserService());
   
-  //Controllers
-  serviceLocator.registerLazySingleton<LoginController>(() => new LoginController());
-
   //Use Cases
   serviceLocator.registerFactory<LoginUseCase>(() => new LoginUseCase());
 
   //Repositories
   serviceLocator.registerLazySingleton<AccountRepository>(() => new AccountRepository());
 
+  //Controllers
+  serviceLocator.registerLazySingleton<LoginController>(() => new LoginController());
 }
