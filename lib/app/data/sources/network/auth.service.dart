@@ -1,8 +1,8 @@
 import 'package:flutter_architecture/app/data/mappers/user.mapper.dart';
+import 'package:flutter_architecture/app/data/sources/storage/storage.helper.dart';
+import 'package:flutter_architecture/app/data/sources/storage/storage.keys.dart';
 import 'package:flutter_architecture/app/domain/models/response.model.dart';
 import 'package:flutter_architecture/core/device/http/http.helper.dart';
-import 'package:flutter_architecture/core/device/storage/storage.helper.dart';
-import 'package:flutter_architecture/core/device/storage/storage.keys.dart';
 
 import './base/endpoints.dart' as Endpoints;
 

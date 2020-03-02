@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_architecture/core/device/storage/storage.helper.dart';
-import 'package:flutter_architecture/core/device/storage/storage.keys.dart';
+import 'package:flutter_architecture/app/data/sources/storage/storage.helper.dart';
+import 'package:flutter_architecture/app/data/sources/storage/storage.keys.dart';
 
 class HttpHelper {
   static Dio _client;
