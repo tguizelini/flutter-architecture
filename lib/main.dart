@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_architecture/src/application/di/service_locator.dart';
-import 'package:flutter_architecture/src/application/values/theme.dart';
-import 'package:flutter_architecture/src/presentation/pages/login/login.page.dart';
+import 'package:flutter_architecture/core/di/service_locator.dart';
+import 'package:flutter_architecture/core/values/theme.dart';
 
-void main() {
-  setupLocator();
+import 'app/presentation/pages/login/login.page.dart';
+
+void main() async {
+  await setupLocator();
   
   runApp(
     MaterialApp(
