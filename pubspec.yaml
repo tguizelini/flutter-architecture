@@ -25,8 +25,6 @@ dependencies:
   cupertino_icons: ^0.1.2
   flutter_launcher_icons: "^0.7.3"
   dio: ^2.1.5
-  rxdart: ^0.22.0
-  provider: ^4.0.1
   shared_preferences: ^0.5.2
   fluttertoast: ^3.1.0
   image_picker: ^0.6.1+4
@@ -34,8 +32,13 @@ dependencies:
   intl: ^0.16.0
   connectivity: ^0.4.6+2
   sqflite: ^1.2.0
+  get_it: ^4.0.0
+  mobx: ^1.0.2
+  flutter_mobx: ^1.0.1
 
 dev_dependencies:
+  mobx_codegen: ^1.0.2
+  build_runner:
   flutter_test:
     sdk: flutter
 
