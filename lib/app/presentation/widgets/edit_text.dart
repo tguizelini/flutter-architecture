@@ -12,11 +12,11 @@ class EditText extends StatefulWidget {
   final bool password;
   final bool dark;
   final bool multiline;
-  final String errorText;
+  final String errorMessage;
   final String labelText;
   final String mask;
 
-  const EditText({Key key, this.autofocus, this.value, this.errorText, this.onChange, this.placeholder, this.keyboardType, this.password, this.dark, this.multiline, this.labelText, this.mask}) : super(key: key);
+  const EditText({Key key, this.autofocus, this.value, this.errorMessage, this.onChange, this.placeholder, this.keyboardType, this.password, this.dark, this.multiline, this.labelText, this.mask}) : super(key: key);
 
   @override
   _EditTextState createState() => _EditTextState();
@@ -34,28 +34,35 @@ class _EditTextState extends State<EditText> {
 
   @override
   Widget build(BuildContext context) {
+    _controller.text = widget.value;
+    //fix the invertion of text editing
+    if (widget.value != null) 
+      _controller.selection = TextSelection.collapsed(offset: widget.value.length);
 
-    return TextField(
-      controller: _controller,
-      obscureText: widget.password == true ? true : false,
-      onChanged: (text) {
-        if (widget.onChange != null) widget.onChange(text);
-      },
-      maxLines: widget.multiline == true ? null : 1,
-      keyboardType: widget.multiline == true ? TextInputType.multiline : widget.keyboardType,
-      style: TextStyle(
-          color: widget.dark == true ? colors.backgroundColor : colors.primaryColor  //cor do texto ao digitar,
-      ),
-      autofocus: widget.autofocus == null ? false : true,
-      textCapitalization: TextCapitalization.none,
-      decoration: InputDecoration(
+    return Padding(
+      padding: EdgeInsets.only(top: 16.0),
+      child: TextField(
+        controller: _controller,
+        obscureText: widget.password == true ? true : false,
+        onChanged: (value) {
+          if (widget.onChange != null) widget.onChange(value);
+        },
+
+        maxLines: widget.multiline == true ? null : 1,
+        keyboardType: widget.multiline == true ? TextInputType.multiline : widget.keyboardType,
+        style: TextStyle(
+            color: widget.dark == false ? colors.primaryColor: colors.primaryColorDark   //cor do texto ao digitar,
+        ),
+        autofocus: widget.autofocus == null ? false : true,
+        decoration: InputDecoration(
+          contentPadding: EdgeInsets.only(bottom: 4),
           hintText: widget.value == null ? "Holder" : widget.value,
           labelText: widget.labelText == null ? widget.placeholder: widget.labelText,
-          errorText: widget.errorText,
+          //errorText: widget.errorText,
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
-                color: widget.dark == true ? Colors.white : colors.primaryColorDark, //cor da borda
-                width: 0.0
+                color: widget.dark == false ? Colors.white : colors.primaryColor, //cor da borda
+                width: 0.5
             ),
           ),
           hintStyle: TextStyle(
@@ -65,21 +72,22 @@ class _EditTextState extends State<EditText> {
           enabled: true,
           labelStyle: TextStyle(
               fontSize: dimens.fontEditText,
-              color: widget.dark == true ? colors.accentLightColor: colors.accentLightColor //cor da label
+              color: widget.dark == false ? colors.accentColor : colors.primaryColor//cor da label
           ),
           border: OutlineInputBorder(
               borderSide: BorderSide(
-                  color: colors.accentLightColor, //cor da label quando esta com focus
-                  width: 0
+                  color: colors.accentColor, //cor da label quando esta com focus
+                  width: 0,
               )
           ),
           focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(
-                  color: widget.dark == true ? colors.backgroundColor : colors.primaryColorDark, //cor da label quando esta com focus
+                  color: widget.dark == false ? colors.primaryColor : colors.accentColor, //cor da label quando esta com focus
                   width: 1
               )
           )
-      )
+        )
+  ),
     );
   }
 }

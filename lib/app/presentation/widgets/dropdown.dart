@@ -37,66 +37,63 @@ class CustomDropdown extends StatelessWidget {
         );
       }).toList();
 
-    return TextField(
-      controller: _controller,
-      onChanged: (value) => null,
-      enableInteractiveSelection: false,
-      focusNode: _AlwaysDisabledFocusNode(),
-      cursorColor: Colors.white,
-      onTap: () {
-        Modal.show(
-          context,
-          body: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              CustomText(text: label.toUpperCase(), bold: true, accent: true,),
-              SizedBox(height: 10),
-              ...options
-            ]
-          )
-        );
-      },
-      ////////////////////////////////////////////////////////////////////////////////////////////////////
-      textCapitalization: TextCapitalization.none,
-      style: TextStyle(color: colors.primaryColorDark), //cor do texto ao digitar,
-      decoration: InputDecoration(
-        suffixIcon: Icon(Icons.arrow_drop_down),
-        //errorText: snapshot.error,
-        //hintText: placeholder,
-        labelText: label ?? "",
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: colors.primaryColorDark, //cor da borda
-            width: 0.0
+    return Padding(
+      padding: EdgeInsets.only(top: 8.0),
+      child: TextField(
+        controller: _controller,
+        onChanged: (value) => null,
+        enableInteractiveSelection: false,
+        cursorColor: Colors.white,
+        onTap: () {
+          Modal.show(
+            context,
+            body: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                CustomText(text: label.toUpperCase(), bold: true, accent: true,),
+                SizedBox(height: 10),
+                ...options
+              ]
+            )
+          );
+        },
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        textCapitalization: TextCapitalization.none,
+        style: TextStyle(color: colors.primaryColorDark), //cor do texto ao digitar,
+        decoration: InputDecoration(
+          suffixIcon: Icon(Icons.arrow_drop_down),
+          //errorText: snapshot.error,
+          //hintText: placeholder,
+          labelText: label ?? "",
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: colors.primaryColorDark, //cor da borda
+              width: 0.0
+            ),
           ),
-        ),
-        hintStyle: TextStyle(
-          color:Colors.transparent, //cor do placeholder com foco
-          fontSize: dimens.fontEditText
-        ),
-        enabled: true,
-        labelStyle: TextStyle(
-          fontSize: dimens.fontEditText, 
-          color: colors.primaryColorDark //cor da label
-        ),
-        border: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: colors.primaryColorDark, //cor da label quando esta com focus
-            width: 0
-          )
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: colors.primaryColorDark, //cor da label quando esta com focus
-            width: 1
+          hintStyle: TextStyle(
+            color:Colors.transparent, //cor do placeholder com foco
+            fontSize: dimens.fontEditText
+          ),
+          enabled: true,
+          labelStyle: TextStyle(
+            fontSize: dimens.fontEditText, 
+            color: colors.primaryColorDark //cor da label
+          ),
+          border: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: colors.primaryColorDark, //cor da label quando esta com focus
+              width: 0
+            )
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: colors.primaryColorDark, //cor da label quando esta com focus
+              width: 1
+            )
           )
         )
-      )
+      ),
     );
   }
-}
-
-class _AlwaysDisabledFocusNode extends FocusNode {
-  @override
-  bool get hasFocus => false;
 }
