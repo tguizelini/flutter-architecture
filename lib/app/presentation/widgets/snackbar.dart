@@ -1,31 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_architecture/core/values/colors.dart' as colors;
 import './text.dart';
-/*
-class CustomSnackbarAction {
-  static SnackBarAction show({ String message, Function onPress }) {
-    return SnackBarAction(
-      label: message ?? "Snackbar message",
-      onPressed: onPress,
-      textColor: Colors.white54,
-    );
-  }
-}
-*/
-class CustomSnackbar {
-  SnackBar _snackbar;
 
-  CustomSnackbar ({ BuildContext context, String message, SnackBarAction action }) {
-    this._snackbar = SnackBar(
-      action: action,
+class CustomSnackbar {
+  CustomSnackbar (GlobalKey<ScaffoldState> scaffoldKey, { String message, Function action, String actionMessage }) {
+    final snackbar = SnackBar(
+      action: action == null ? null : SnackBarAction(
+        label: actionMessage ?? "OK",
+        onPressed: () => action == null ? () => null : action(),
+        textColor: Colors.white54,
+      ),
       backgroundColor: colors.snackbarBackgroundColor,
       content: CustomText(
         white: true,
         bold: true,
+        small: true,
         text: message,
       ),
     );
 
-    Scaffold.of(context).showSnackBar(this._snackbar);
+    scaffoldKey.currentState.showSnackBar(snackbar);
   }
 }

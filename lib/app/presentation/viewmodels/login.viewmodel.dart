@@ -1,6 +1,5 @@
 import 'package:flutter_architecture/app/domain/models/response.model.dart';
 import 'package:flutter_architecture/app/domain/usecases/login.usecase.dart';
-import 'package:flutter_architecture/app/presentation/widgets/toast.dart';
 import 'package:flutter_architecture/core/di/service_locator.dart';
 import 'package:mobx/mobx.dart';
 
@@ -29,17 +28,19 @@ abstract class _LoginViewModelBase with Store {
   @action
   setPassword(String value) => password = value;
 
-  void signIn() async {
+  Future<bool> signIn() async {
     _setLoading(true);
+
+    await Future.delayed(Duration(seconds: 2));
 
     ResponseModel ret = await _uc.login(login, password);
 
     _setLoading(false);
     
     if (ret.status == 200) {
-      CustomToast.show("Success");
+      return true;
     }
 
-    CustomToast.show(ret.message);
+    return false;
   }
 }

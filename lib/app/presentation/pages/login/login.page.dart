@@ -12,6 +12,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> with LoginWidget {
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
   final vm = serviceLocator<LoginViewModel>();
 
   @override
@@ -21,10 +22,11 @@ class _LoginPageState extends State<LoginPage> with LoginWidget {
         message: "Loading message",
         status: vm.isLoading,
         child: Scaffold(
+          key: _scaffoldKey,
           body: SingleChildScrollView(
             child: Container(
               height: MediaQuery.of(context).size.height,
-              child: form(context)
+              child: form(context, _scaffoldKey)
             ),
           )
         )

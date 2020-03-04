@@ -3,13 +3,14 @@ import 'package:flutter_architecture/app/presentation/viewmodels/login.viewmodel
 import 'package:flutter_architecture/app/presentation/widgets/button.dart';
 import 'package:flutter_architecture/app/presentation/widgets/edit_text.dart';
 import 'package:flutter_architecture/app/presentation/widgets/logo.dart';
+import 'package:flutter_architecture/app/presentation/widgets/snackbar.dart';
 import 'package:flutter_architecture/core/di/service_locator.dart';
 import 'package:flutter_architecture/core/values/dimens.dart' as dimens;
 
 class LoginWidget {
   final vm = serviceLocator<LoginViewModel>();
   
-  Widget form(BuildContext context) {
+  Widget form(BuildContext context, GlobalKey<ScaffoldState> scaffoldKey) {
     return Padding(
       padding: EdgeInsets.all(dimens.margin),
       child: Column(
@@ -37,7 +38,15 @@ class LoginWidget {
 
           CustomButton(
             label: "Sign In",
-            onPress: () => vm.signIn(),
+            onPress: () async{
+              final ret = await vm.signIn();
+
+              if (ret) {
+                CustomSnackbar(scaffoldKey, message: "SUCCESS");
+              } else {
+                CustomSnackbar(scaffoldKey, message: "NOT FOUND");
+              }
+            }
           )
         ],
       ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import './text.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 
 import 'package:flutter_architecture/core/values/colors.dart' as colors;
 

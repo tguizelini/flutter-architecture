@@ -22,6 +22,6 @@ final Color disabledListViewColor = Color(0xFFf7f7f7);
 
 final Color canvasColor = Colors.transparent;
 
-final Color snackbarBackgroundColor = Colors.black87;
-final Color toastBackgroundColor = Colors.black87;
+final Color snackbarBackgroundColor = Colors.black38;
+final Color toastBackgroundColor = Colors.black38;
 final Color toastTextColor = Colors.white;
