@@ -4,7 +4,6 @@ import 'package:flutter_architecture/app/presentation/widgets/button.dart';
 import 'package:flutter_architecture/app/presentation/widgets/edit_text.dart';
 import 'package:flutter_architecture/app/presentation/widgets/logo.dart';
 import 'package:flutter_architecture/app/presentation/widgets/snackbar.dart';
-import 'package:flutter_architecture/app/presentation/widgets/toast.dart';
 import 'package:flutter_architecture/core/di/service_locator.dart';
 import 'package:flutter_architecture/core/values/dimens.dart' as dimens;
 
