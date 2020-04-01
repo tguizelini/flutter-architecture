@@ -1,14 +1,14 @@
-import 'package:flutter_architecture/app/domain/models/response.model.dart';
-import 'package:flutter_architecture/app/domain/usecases/login.usecase.dart';
+import 'package:flutter_architecture/app/data/repositories/account.repository.dart';
+import 'package:flutter_architecture/app/domain/http_response.dart';
 import 'package:flutter_architecture/core/di/service_locator.dart';
 import 'package:mobx/mobx.dart';
 
-part 'login.viewmodel.g.dart';
+part 'account.viewmodel.g.dart';
 
-class LoginViewModel = _LoginViewModelBase with _$LoginViewModel;
+class AccountViewModel = _AccountViewModelBase with _$AccountViewModel;
 
-abstract class _LoginViewModelBase with Store {
-  final _uc = serviceLocator<LoginUseCase>();
+abstract class _AccountViewModelBase with Store {
+  final _uc = serviceLocator<AccountRepository>();
   
   @observable 
   bool isLoading = false;
@@ -33,7 +33,7 @@ abstract class _LoginViewModelBase with Store {
 
     await Future.delayed(Duration(seconds: 2));
 
-    ResponseModel ret = await _uc.login(login, password);
+    HttpResponse ret = await _uc.login(login, password);
 
     _setLoading(false);
     

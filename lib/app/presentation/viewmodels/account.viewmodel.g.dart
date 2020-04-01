@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'login.viewmodel.dart';
+part of 'account.viewmodel.dart';
 
 // **************************************************************************
 // StoreGenerator
@@ -8,8 +8,8 @@ part of 'login.viewmodel.dart';
 
 // ignore_for_file: non_constant_identifier_names, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
-mixin _$LoginViewModel on _LoginViewModelBase, Store {
-  final _$isLoadingAtom = Atom(name: '_LoginViewModelBase.isLoading');
+mixin _$AccountViewModel on _AccountViewModelBase, Store {
+  final _$isLoadingAtom = Atom(name: '_AccountViewModelBase.isLoading');
 
   @override
   bool get isLoading {
@@ -26,7 +26,7 @@ mixin _$LoginViewModel on _LoginViewModelBase, Store {
     }, _$isLoadingAtom, name: '${_$isLoadingAtom.name}_set');
   }
 
-  final _$loginAtom = Atom(name: '_LoginViewModelBase.login');
+  final _$loginAtom = Atom(name: '_AccountViewModelBase.login');
 
   @override
   String get login {
@@ -43,7 +43,7 @@ mixin _$LoginViewModel on _LoginViewModelBase, Store {
     }, _$loginAtom, name: '${_$loginAtom.name}_set');
   }
 
-  final _$passwordAtom = Atom(name: '_LoginViewModelBase.password');
+  final _$passwordAtom = Atom(name: '_AccountViewModelBase.password');
 
   @override
   String get password {
@@ -60,36 +60,36 @@ mixin _$LoginViewModel on _LoginViewModelBase, Store {
     }, _$passwordAtom, name: '${_$passwordAtom.name}_set');
   }
 
-  final _$_LoginViewModelBaseActionController =
-      ActionController(name: '_LoginViewModelBase');
+  final _$_AccountViewModelBaseActionController =
+      ActionController(name: '_AccountViewModelBase');
 
   @override
   dynamic _setLoading(bool value) {
-    final _$actionInfo = _$_LoginViewModelBaseActionController.startAction();
+    final _$actionInfo = _$_AccountViewModelBaseActionController.startAction();
     try {
       return super._setLoading(value);
     } finally {
-      _$_LoginViewModelBaseActionController.endAction(_$actionInfo);
+      _$_AccountViewModelBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
   dynamic setLogin(String value) {
-    final _$actionInfo = _$_LoginViewModelBaseActionController.startAction();
+    final _$actionInfo = _$_AccountViewModelBaseActionController.startAction();
     try {
       return super.setLogin(value);
     } finally {
-      _$_LoginViewModelBaseActionController.endAction(_$actionInfo);
+      _$_AccountViewModelBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
   dynamic setPassword(String value) {
-    final _$actionInfo = _$_LoginViewModelBaseActionController.startAction();
+    final _$actionInfo = _$_AccountViewModelBaseActionController.startAction();
     try {
       return super.setPassword(value);
     } finally {
-      _$_LoginViewModelBaseActionController.endAction(_$actionInfo);
+      _$_AccountViewModelBaseActionController.endAction(_$actionInfo);
     }
   }
 

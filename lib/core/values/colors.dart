@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-final Color accentColor = Color(0xFF202025);
-final Color accentLightColor = Color(0xFFdaaa7b);
+final Color accentColor = Color(0xFF53ac6d);
+final Color accentLightColor = Color(0xFF53ac6d);
 
-final Color primaryColor = Colors.grey[500];
-final Color primaryColorDark = Colors.grey[700];
+final Color primaryColor = Color(0xFFd7dae0);
+final Color primaryColorDark = Color(0xFFabb2bf);
 
 final Color facebookColor = Color(0xFFf4d6cac);
 
-final Color backgroundColor = Color(0xFF202025);
-final Color backgroundDarkColor = Color(0xFF3a3b35);
+final Color backgroundColor = Color(0xFF21252b);
+final Color backgroundDarkColor = Color(0xFF21252b);
 final Color cardColor = Color(0xFF2b2d34);
 
 final Color backgroundGradient1 = Color(0xFF202025);

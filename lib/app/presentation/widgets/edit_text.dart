@@ -40,7 +40,7 @@ class _EditTextState extends State<EditText> {
       _controller.selection = TextSelection.collapsed(offset: widget.value.length);
 
     return Padding(
-      padding: EdgeInsets.only(top: 16.0),
+      padding: EdgeInsets.only(top: dimens.fieldSpace),
       child: TextField(
         controller: _controller,
         obscureText: widget.password == true ? true : false,
@@ -59,7 +59,7 @@ class _EditTextState extends State<EditText> {
           hintText: widget.value == null ? "Holder" : widget.value,
           labelText: widget.labelText == null ? widget.placeholder: widget.labelText,
           //errorText: widget.errorText,
-          enabledBorder: OutlineInputBorder(
+          enabledBorder: UnderlineInputBorder(
             borderSide: BorderSide(
                 color: widget.dark == false ? Colors.white : colors.primaryColor, //cor da borda
                 width: 0.5
@@ -74,13 +74,13 @@ class _EditTextState extends State<EditText> {
               fontSize: dimens.fontEditText,
               color: widget.dark == false ? colors.accentColor : colors.primaryColor//cor da label
           ),
-          border: OutlineInputBorder(
+          border: UnderlineInputBorder(
               borderSide: BorderSide(
                   color: colors.accentColor, //cor da label quando esta com focus
                   width: 0,
               )
           ),
-          focusedBorder: OutlineInputBorder(
+          focusedBorder: UnderlineInputBorder(
               borderSide: BorderSide(
                   color: widget.dark == false ? colors.primaryColor : colors.accentColor, //cor da label quando esta com focus
                   width: 1

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_architecture/app/presentation/widgets/text.dart';
 import 'package:flutter_architecture/core/values/colors.dart' as colors;
-import './text.dart';
 
 class CustomButton extends StatelessWidget {
   final String label;
@@ -37,7 +37,7 @@ class CustomButton extends StatelessWidget {
     } else {
       backgroundColor = colors.accentLightColor;
       borderColor = colors.accentLightColor;
-      textColor = colors.accentColor;
+      textColor = Colors.white;
     }
 
     if (facebook == true) {
@@ -49,15 +49,15 @@ class CustomButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 16.0),
       child: RaisedButton(
-        padding: EdgeInsets.symmetric(vertical: 14.0, horizontal: 36.0),
+        padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 45.0),
         shape: RoundedRectangleBorder(
           side: BorderSide( color: borderColor ),
-          borderRadius: BorderRadius.circular(10)
+          borderRadius: BorderRadius.circular(20)
         ),
         onPressed: action,
         elevation: _elevation,
         color: backgroundColor,
-        child: CustomText(text: label ?? "Label", small: true, color: textColor )
+        child: CustomText(text: label.toUpperCase() ?? "Label", small: true, color: textColor )
       ),
     );
   }

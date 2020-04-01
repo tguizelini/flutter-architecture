@@ -1,5 +1,5 @@
-import 'package:flutter_architecture/app/domain/models/response.model.dart';
+import 'package:flutter_architecture/app/domain/http_response.dart';
 
 abstract class IAccountRepository {
-  Future<ResponseModel> login(String login, String senha);
+  Future<HttpResponse> login(String login, String senha);
 }

@@ -35,17 +35,13 @@ class _LoadingState extends State<Loading> {
             alignment: Alignment.center,
             color: widget.backgroundTransparent == true
                 ? Colors.transparent
-                : Colors.black54,
+                : Colors.grey.withOpacity(0.7),
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.all(16.0),
-                    child: CustomText(
-                      text: widget.message,
-                      white:
-                          widget.backgroundTransparent == true ? false : true,
-                    ),
+                    child: CustomText(text: widget.message),
                   ),
                   CircularProgressIndicator(
                     backgroundColor: Colors.transparent,

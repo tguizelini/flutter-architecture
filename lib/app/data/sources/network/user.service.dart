@@ -1,5 +1,5 @@
 import 'package:flutter_architecture/app/data/mappers/user.mapper.dart';
-import 'package:flutter_architecture/app/domain/models/response.model.dart';
+import 'package:flutter_architecture/app/domain/http_response.dart';
 import 'package:flutter_architecture/core/di/components/http_client.dart';
 import 'package:flutter_architecture/core/di/service_locator.dart';
 
@@ -8,8 +8,8 @@ import './base/endpoints.dart' as Endpoints;
 class UserService{
   final client = serviceLocator<HttpClient>();
   
-  Future<ResponseModel> list() async {
-    ResponseModel response = ResponseModel();
+  Future<HttpResponse> list() async {
+    HttpResponse response = HttpResponse();
 
     final String url = Endpoints.myList.list;
 

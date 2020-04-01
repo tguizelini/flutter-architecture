@@ -8,16 +8,18 @@ class CustomText extends StatelessWidget {
   final bool bold;
   final bool big;
   final bool small;
+  final bool smaller;
   final bool center;
   final bool white;
   final bool dark;
   final bool accent;
   final bool primary;
-  final bool primaryDark;
   final Color color;
   final int maxLines;
+  final bool underline;
+  final TextAlign align;
 
-  const CustomText({Key key, this.text, this.title, this.bold, this.big, this.small, this.center, this.white, this.dark, this.accent, this.primary, this.primaryDark, this.color, this.maxLines}) : super(key: key);
+  const CustomText({Key key, this.align, this.smaller, this.underline, this.text, this.title, this.bold, this.big, this.small, this.center, this.white, this.dark, this.accent, this.primary, this.color, this.maxLines}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,22 +33,22 @@ class CustomText extends StatelessWidget {
           big == true ? 
             dimens.fontTextBig 
           :
-            small == true ? dimens.fontTextSmall : dimens.fontText; 
+            small == true ? dimens.fontTextSmall : smaller == true ? dimens.fontTextSmaller : dimens.fontText;
 
-    final Color customColor = primaryDark == true ? 
-      colors.primaryColorDark
+    final Color customColor = primary == true ?
+      colors.primaryColor
     : 
       white == true ? 
         Colors.white 
       : 
-        accent == true ? colors.accentLightColor : colors.primaryColor;
+        accent == true ? colors.accentLightColor : colors.primaryColorDark;
 
     return Text(
       textValue,
       maxLines: maxLines,
-      textAlign: center == true ? TextAlign.center : null,
+      textAlign: center == true ? TextAlign.center : align == null ? null : align,
       style: TextStyle(
-        decoration: TextDecoration.none,
+        decoration: underline == true ? TextDecoration.underline : TextDecoration.none,
         fontSize: fontSize,
         color: color == null ? 
             dark == true ? colors.backgroundColor : customColor 

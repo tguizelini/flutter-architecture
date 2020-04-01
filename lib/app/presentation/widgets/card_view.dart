@@ -9,23 +9,14 @@ class CardView extends StatelessWidget {
   final Widget child;
   final Color backgroundColor;
   final bool noCorner;
+  final bool autoHeight;
 
-  const CardView({
-    Key key, 
-    this.alignment, 
-    this.width,
-    this.height,
-    this.elevation,
-    this.margin, 
-    this.backgroundColor, 
-    this.child,
-    this.noCorner
-  }) : super(key: key);
+  const CardView({Key key, this.alignment, this.width, this.height, this.margin, this.elevation, this.backgroundColor, this.noCorner, this.autoHeight, this.child}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: height,
+        height: autoHeight == true ? null : height == null ? 100 : height,
         width: width,
         margin: margin,
         alignment: alignment,

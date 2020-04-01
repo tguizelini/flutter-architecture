@@ -50,7 +50,7 @@ class CustomDropdown extends StatelessWidget {
             body: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                CustomText(text: label.toUpperCase(), bold: true, accent: true,),
+                CustomText(text: label == null ? "" : label.toUpperCase(), bold: true, accent: true,),
                 SizedBox(height: 10),
                 ...options
               ]
@@ -65,7 +65,7 @@ class CustomDropdown extends StatelessWidget {
           //errorText: snapshot.error,
           //hintText: placeholder,
           labelText: label ?? "",
-          enabledBorder: OutlineInputBorder(
+          enabledBorder: UnderlineInputBorder(
             borderSide: BorderSide(
               color: colors.primaryColorDark, //cor da borda
               width: 0.0
@@ -80,13 +80,13 @@ class CustomDropdown extends StatelessWidget {
             fontSize: dimens.fontEditText, 
             color: colors.primaryColorDark //cor da label
           ),
-          border: OutlineInputBorder(
+          border: UnderlineInputBorder(
             borderSide: BorderSide(
               color: colors.primaryColorDark, //cor da label quando esta com focus
               width: 0
             )
           ),
-          focusedBorder: OutlineInputBorder(
+          focusedBorder: UnderlineInputBorder(
             borderSide: BorderSide(
               color: colors.primaryColorDark, //cor da label quando esta com focus
               width: 1
