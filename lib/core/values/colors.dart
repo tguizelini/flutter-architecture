@@ -18,7 +18,7 @@ final Color backgroundGradient3 = Color(0xFF202025);
 
 final Color disabledTextColor = Color(0xFFa1a1a1);
 final Color disabledColor = Colors.black38;
-final Color disabledListViewColor = Color(0xFFf7f7f7);
+
 
 final Color canvasColor = Colors.transparent;
 
