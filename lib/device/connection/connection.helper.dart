@@ -11,7 +11,7 @@ class ConnectionHelper {
     await _connect();
     if (_connectivityResult == ConnectivityResult.mobile) return true;
     if (_connectivityResult == ConnectivityResult.wifi) return true;
-    return false;
+    return false; 
   }
 
   static Stream<ConnectivityResult> connectionListener() {

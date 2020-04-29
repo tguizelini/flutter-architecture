@@ -19,7 +19,6 @@ final Color backgroundGradient3 = Color(0xFF202025);
 final Color disabledTextColor = Color(0xFFa1a1a1);
 final Color disabledColor = Colors.black38;
 
-
 final Color canvasColor = Colors.transparent;
 
 final Color snackbarBackgroundColor = Colors.black38;

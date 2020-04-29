@@ -72,6 +72,9 @@ class LoginWidget {
                   );
                 }
 
+
+                await Future.delayed(Duration(seconds: 1));
+
                 Navigator.pushReplacement(context, NavSlideFromTop(
                   page: ProfilePage()
                 ));
