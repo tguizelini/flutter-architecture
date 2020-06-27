@@ -20,7 +20,7 @@ This project structure was made thinking in productivity and easy maintenance.
 
 8. Custom classes for page transitions animated (fromLeft, from Top, fromBottom and fromRight)
 
-9. Custom Widgets like Loading, CardView, Toast, Snackbar, Modal, Dropdown, CustomDrawer and more
+9. Custom Widgets like LoadingWidget, CardViewWidget, Toast, Snackbar, ModalWidget, Dropdown, CustomDrawer and more
 
 10. The "values" folder, you will find the files:
 - "dimens": to set sizes defaults for margin, font, etc

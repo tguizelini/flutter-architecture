@@ -1,7 +1,7 @@
 class HttpResponse {
-  int status = 400;
+  int statusCode = 200;
   String message = "";
   dynamic data;
 
-  HttpResponse({ this.status, this.message, this.data });
+  HttpResponse({ this.statusCode, this.message, this.data });
 }
