@@ -15,7 +15,7 @@ class _LoginPageState extends State<LoginPage> with LoginWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<Object>(
+    return StreamBuilder(
       stream: vm.loading,
       builder: (context, snapshot) {
         return LoadingWidget( 
