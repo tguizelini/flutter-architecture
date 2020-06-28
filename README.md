@@ -10,8 +10,8 @@ This project structure was made thinking in productivity and easy maintenance.
 
 3. For state management
 ```
-branch **master** -> RxDart
-branch **mobx** -> Mobx
+branch MASTER -> RxDart
+branch MOBX -> Mobx
 ```
 4. SQFlite to work with SQLite
 
