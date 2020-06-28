@@ -32,13 +32,10 @@ dependencies:
   intl: ^0.16.0
   connectivity: ^0.4.6+2
   sqflite: ^1.2.0
-  get_it: ^4.0.0
-  mobx: ^1.2.1+1
-  flutter_mobx: ^1.1.0+1
-  mobx_codegen: ^1.1.0+1
+  get_it: ^4.0.2
+  rxdart: ^0.24.1
 
 dev_dependencies:
-  build_runner:
   flutter_test:
     sdk: flutter
 

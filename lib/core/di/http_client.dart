@@ -5,7 +5,7 @@ class HttpClient {
   Dio _client;
 
   HttpClient() {
-    _client = new Dio();
+    _client = Dio();
     _client.interceptors.add(_interceptor());
   }
 

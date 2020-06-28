@@ -1,9 +1,11 @@
-import 'package:mobx/mobx.dart';
+
+import 'package:rxdart/subjects.dart';
 
 abstract class BaseViewModel {
-  @observable 
-  bool isLoading = false;
+  final _loading = BehaviorSubject<bool>.seeded(false);
 
-  @action 
-  setLoading(bool value) => isLoading = value;
+  Stream get loading => _loading.stream;
+  void setLoading(bool value) => _loading.add(value);
+
+  void clear();
 }

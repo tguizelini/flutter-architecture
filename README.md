@@ -8,7 +8,9 @@ This project structure was made thinking in productivity and easy maintenance.
 
 2. Get_It for dependency injection
 
-3. MobX to manage states 
+3. State management
+- BRANCH "master" -> RxDart
+- BRANCH "mobx" -> Mobx
 
 4. SQFlite to work with SQLite
 
