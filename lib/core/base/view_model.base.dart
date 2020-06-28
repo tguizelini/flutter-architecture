@@ -1,9 +1,9 @@
 import 'package:mobx/mobx.dart';
 
-abstract class BaseViewModel {
+abstract class BaseViewModel with Store {
   @observable 
-  bool isLoading = false;
+  bool loading = false;
 
   @action 
-  setLoading(bool value) => isLoading = value;
+  setLoading(bool value) => loading = value;
 }

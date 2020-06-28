@@ -6,19 +6,19 @@ import 'package:get_it/get_it.dart';
 
 import 'http_client.dart';
 
-final GetIt serviceLocator = GetIt.I;
+final GetIt inject = GetIt.I;
 
-Future<void> setupLocator() async {
+Future<void> setupInjection() async {
   //Components
-  serviceLocator.registerSingleton<HttpClient>(new HttpClient());
+  inject.registerSingleton<HttpClient>(new HttpClient());
 
   //Remote Services
-  serviceLocator.registerLazySingleton<AuthService>(() => new AuthService());
-  serviceLocator.registerLazySingleton<UserService>(() => new UserService());
+  inject.registerLazySingleton<AuthService>(() => new AuthService());
+  inject.registerLazySingleton<UserService>(() => new UserService());
   
   //Repositories
-  serviceLocator.registerLazySingleton<AuthRepository>(() => new AuthRepository());
+  inject.registerLazySingleton<AuthRepository>(() => new AuthRepository());
 
   //ViewModels
-  serviceLocator.registerLazySingleton<LoginViewModel>(() => new LoginViewModel());
+  inject.registerLazySingleton<LoginViewModel>(() => new LoginViewModel());
 }

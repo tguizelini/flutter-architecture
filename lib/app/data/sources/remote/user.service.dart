@@ -1,12 +1,12 @@
 import 'package:flutter_architecture/app/data/mappers/user.mapper.dart';
 import 'package:flutter_architecture/app/domain/http_response.dart';
 import 'package:flutter_architecture/core/di/http_client.dart';
-import 'package:flutter_architecture/core/di/service_locator.dart';
+import 'package:flutter_architecture/core/di/injector_provider.dart';
 
 import './base/endpoints.dart' as Endpoints;
 
 class UserService{
-  final client = serviceLocator<HttpClient>();
+  final client = inject<HttpClient>();
   
   Future<HttpResponse> list() async {
     HttpResponse response = HttpResponse();

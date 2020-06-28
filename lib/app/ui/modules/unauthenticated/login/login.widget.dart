@@ -5,14 +5,14 @@ import 'package:flutter_architecture/app/ui/widgets/input.dart';
 import 'package:flutter_architecture/app/ui/widgets/logo.dart';
 import 'package:flutter_architecture/app/ui/widgets/snackbar.dart';
 import 'package:flutter_architecture/app/ui/widgets/text.dart';
-import 'package:flutter_architecture/core/di/service_locator.dart';
+import 'package:flutter_architecture/core/di/injector_provider.dart';
 import 'package:flutter_architecture/core/values/dimens.dart' as dimens;
 import 'package:flutter_architecture/device/nav/nav_slide_from_top.dart';
 
 import 'login.viewmodel.dart';
 
 class LoginWidget {
-  final vm = serviceLocator<LoginViewModel>();
+  final vm = inject<LoginViewModel>();
   
   Widget form(BuildContext context, GlobalKey<ScaffoldState> key) {
     return Padding(
