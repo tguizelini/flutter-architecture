@@ -28,7 +28,7 @@ class LoginWidget {
 
             SizedBox(height: 20),
 
-            StreamBuilder<Object>(
+            StreamBuilder(
               stream: vm.login,
               builder: (context, snapshot) {
                 return InputWidget(
