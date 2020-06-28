@@ -9,10 +9,10 @@ This project structure was made thinking in productivity and easy maintenance.
 2. Get_It for dependency injection
 
 3. For state management
-
-Branch **master** -> RxDart
-Branch **mobx** -> Mobx
-
+```
+branch **master** -> RxDart
+branch **mobx** -> Mobx
+```
 4. SQFlite to work with SQLite
 
 5. HTTP requests using Dio
